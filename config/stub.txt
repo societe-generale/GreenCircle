@@ -1,0 +1,31 @@
+gameloop
+read gamePhase:word(20)
+read applicationsCount:int
+loop applicationsCount read objectType:word(15) id:int trainingNeeded:int codingNeeded:int dailyRoutineNeeded:int taskPrioritizationNeeded:int architectureStudyNeeded:int continuousDeliveryNeeded:int codeReviewNeeded:int refactoringNeeded:int
+loop 2 read playerLocation:int playerScore:int playerPermanentDailyRoutineCards:int playerPermanentArchitectureStudyCards:int
+read cardLocationsCount:int
+loop cardLocationsCount read cardsLocation:word(20) trainingCardsCount:int codingCardsCount:int dailyRoutineCardsCount:int taskPrioritizationCardsCount:int architectureStudyCardsCount:int continuousDeliveryCardsCount:int codeReviewCardsCount:int refactoringCardsCount:int bonusCardsCount:int technicalDebtCardsCount:int
+read possibleMovesCount:int
+loop possibleMovesCount read possibleMove:string(256)
+write RANDOM
+
+STATEMENT
+Complete the hackathon before your opponent by following the principles of Green IT
+
+INPUT
+gamePhase: can be MOVE, GIVE_CARD, THROW_CARD, PLAY_CARD or RELEASE
+trainingNeeded: number of TRAINING skills needed to release this application
+codingNeeded: number of CODING skills needed to release this application
+dailyRoutineNeeded: number of DAILY_ROUTINE skills needed to release this application
+taskPrioritizationNeeded: number of TASK_PRIORITIZATION skills needed to release this application
+architectureStudyNeeded: number of ARCHITECTURE_STUDY skills needed to release this application
+continuousDeliveryNeeded: number of CONTINUOUS_DELIVERY skills needed to release this application
+codeReviewNeeded: number of CODE_REVIEW skills needed to release this application
+refactoringNeeded: number of REFACTORING skills needed to release this application
+playerLocation: id of the zone in which the player is located
+playerPermanentDailyRoutineCards: number of DAILY_ROUTINE the player has played. It allows them to take cards from the adjacent zones
+playerPermanentArchitectureStudyCards: number of ARCHITECTURE_STUDY the player has played. It allows them to draw more cards
+cardsLocation: the location of the card list. It can be HAND, DRAW, DISCARD or OPPONENT_CARDS (AUTOMATED and OPPONENT_AUTOMATED will appear in later leagues)
+
+OUTPUT
+In the first league: RANDOM | MOVE <zoneId> | RELEASE <applicationId> | WAIT; In later leagues: | GIVE <cardType> | THROW <cardType> | TRAINING | CODING | DAILY_ROUTINE | TASK_PRIORITIZATION <cardTypeToThrow> <cardTypeToTake> | ARCHITECTURE_STUDY | CONTINUOUS_DELIVERY <cardTypeToAutomate> | CODE_REVIEW | REFACTORING;
