@@ -1,6 +1,6 @@
 # Green Circle 
 
-Coding Challenge created by Societe Generale for [CodinGame](https://codingame.com)
+[Coding Challenge](https://www.codingame.com/contests/green-circle) created by Societe Generale for [CodinGame](https://codingame.com)
 
 This project is based on the skeleton for the creation of a game using the Game Engine Toolkit of [CodinGame](https://codingame.com).
 
@@ -11,7 +11,7 @@ To test the game or change the league, do it in the SkeletonMain
 
 ## Community starter AIs
 They are located here:
-https://github.com/societe_generale/GreenCircle/tree/main/starterAIs
+https://github.com/societe_generale/GreenCircle/tree/master/starterAIs
 
 
 ## Acknowledgement
