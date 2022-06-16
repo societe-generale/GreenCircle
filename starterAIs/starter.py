@@ -5,15 +5,15 @@ from enum import Enum
 
 
 class CardType(Enum):
-    TRAINING = 0,
-    CODING = 1,
-    DAILY_ROUTINE = 2,
-    TASK_PRIORITIZATION = 3,
-    ARCHITECTURE_STUDY = 4,
-    CONTINUOUS_INTEGRATION = 5,
-    CODE_REVIEW = 6,
-    REFACTORING = 7,
-    BONUS = 8,
+    TRAINING = 0
+    CODING = 1
+    DAILY_ROUTINE = 2
+    TASK_PRIORITIZATION = 3
+    ARCHITECTURE_STUDY = 4
+    CONTINUOUS_INTEGRATION = 5
+    CODE_REVIEW = 6
+    REFACTORING = 7
+    BONUS = 8
     TECHNICAL_DEBT = 9
 
 # Complete the hackathon before your opponent by following the principles of Green IT
