@@ -156,8 +156,6 @@ class Opponent
     {
         Cards = new [] {trainingCardsCount, codingCardsCount, dailyRoutineCardsCount, taskPrioritizationCardsCount, architectureStudyCardsCount,
                         continuousDeliveryCardsCount, codeReviewCardsCount, refactoringCardsCount, bonusCardsCount, technicalDebtCardsCount};
-        UsefulCardsInHand = trainingCardsCount + codingCardsCount + dailyRoutineCardsCount + taskPrioritizationCardsCount + architectureStudyCardsCount
-                        + continuousDeliveryCardsCount + codeReviewCardsCount + refactoringCardsCount + bonusCardsCount;
     }
 
     public void SetAutomatedCards(int trainingCardsCount, int codingCardsCount, int dailyRoutineCardsCount, int taskPrioritizationCardsCount, int architectureStudyCardsCount,
