@@ -33,11 +33,11 @@ class EntryPoint
                 int dailyRoutineNeeded = int.Parse(inputs[4]); // number of DAILY_ROUTINE skills needed to release this application
                 int taskPrioritizationNeeded = int.Parse(inputs[5]); // number of TASK_PRIORITIZATION skills needed to release this application
                 int architectureStudyNeeded = int.Parse(inputs[6]); // number of ARCHITECTURE_STUDY skills needed to release this application
-                int continuousDeliveryNeeded = int.Parse(inputs[7]); // number of CONTINUOUS_DELIVERY skills needed to release this application
+                int continuousIntegrationNeeded = int.Parse(inputs[7]); // number of CONTINUOUS_INTEGRATION skills needed to release this application
                 int codeReviewNeeded = int.Parse(inputs[8]); // number of CODE_REVIEW skills needed to release this application
                 int refactoringNeeded = int.Parse(inputs[9]); // number of REFACTORING skills needed to release this application
                 applications.Add(new Application(id, trainingNeeded, codingNeeded, dailyRoutineNeeded, taskPrioritizationNeeded, architectureStudyNeeded,
-                    continuousDeliveryNeeded, codeReviewNeeded, refactoringNeeded));
+                    continuousIntegrationNeeded, codeReviewNeeded, refactoringNeeded));
             }
             Player me = null;
             for (int i = 0; i < 2; i++)
@@ -61,20 +61,20 @@ class EntryPoint
                 int dailyRoutineCardsCount = int.Parse(inputs[3]);
                 int taskPrioritizationCardsCount = int.Parse(inputs[4]);
                 int architectureStudyCardsCount = int.Parse(inputs[5]);
-                int continuousDeliveryCardsCount = int.Parse(inputs[6]);
+                int continuousIntegrationCardsCount = int.Parse(inputs[6]);
                 int codeReviewCardsCount = int.Parse(inputs[7]);
                 int refactoringCardsCount = int.Parse(inputs[8]);
                 int bonusCardsCount = int.Parse(inputs[9]);
                 int technicalDebtCardsCount = int.Parse(inputs[10]);
                 if (cardsLocation=="HAND")
                     me.SetCardsInHand(trainingCardsCount, codingCardsCount, dailyRoutineCardsCount, taskPrioritizationCardsCount, architectureStudyCardsCount,
-                        continuousDeliveryCardsCount, codeReviewCardsCount, refactoringCardsCount, bonusCardsCount, technicalDebtCardsCount);
+                        continuousIntegrationCardsCount, codeReviewCardsCount, refactoringCardsCount, bonusCardsCount, technicalDebtCardsCount);
                 if (cardsLocation=="AUTOMATED")
                     me.SetAutomatedCards(trainingCardsCount, codingCardsCount, dailyRoutineCardsCount, taskPrioritizationCardsCount, architectureStudyCardsCount,
-                        continuousDeliveryCardsCount, codeReviewCardsCount, refactoringCardsCount, bonusCardsCount, technicalDebtCardsCount);
+                        continuousIntegrationCardsCount, codeReviewCardsCount, refactoringCardsCount, bonusCardsCount, technicalDebtCardsCount);
                 if (cardsLocation=="DRAW" || cardsLocation=="DISCARD")
                     me.UsefulCardsNotInHand += trainingCardsCount + codingCardsCount + dailyRoutineCardsCount + taskPrioritizationCardsCount + architectureStudyCardsCount
-                        + continuousDeliveryCardsCount + codeReviewCardsCount + refactoringCardsCount + bonusCardsCount;
+                        + continuousIntegrationCardsCount + codeReviewCardsCount + refactoringCardsCount + bonusCardsCount;
 
             }
             int possibleMovesCount = int.Parse(Console.ReadLine());
@@ -88,7 +88,7 @@ class EntryPoint
             // To debug: Console.Error.WriteLine("Debug messages...");
 
 
-            // In the first league: RANDOM | MOVE <zoneId> | RELEASE <applicationId> | WAIT; In later leagues: | GIVE <cardType> | THROW <cardType> | TRAINING | CODING | DAILY_ROUTINE | TASK_PRIORITIZATION <cardTypeToThrow> <cardTypeToTake> | ARCHITECTURE_STUDY | CONTINUOUS_DELIVERY <cardTypeToAutomate> | CODE_REVIEW | REFACTORING;
+            // In the first league: RANDOM | MOVE <zoneId> | RELEASE <applicationId> | WAIT; In later leagues: | GIVE <cardType> | THROW <cardType> | TRAINING | CODING | DAILY_ROUTINE | TASK_PRIORITIZATION <cardTypeToThrow> <cardTypeToTake> | ARCHITECTURE_STUDY | CONTINUOUS_INTEGRATION <cardTypeToAutomate> | CODE_REVIEW | REFACTORING;
             if (gamePhase=="MOVE")
             {
                 //Write your code here to move your player
@@ -152,17 +152,17 @@ class Opponent
     }
 
     public void SetCards(int trainingCardsCount, int codingCardsCount, int dailyRoutineCardsCount, int taskPrioritizationCardsCount, int architectureStudyCardsCount,
-                            int continuousDeliveryCardsCount, int codeReviewCardsCount, int refactoringCardsCount, int bonusCardsCount, int technicalDebtCardsCount)
+                            int continuousIntegrationCardsCount, int codeReviewCardsCount, int refactoringCardsCount, int bonusCardsCount, int technicalDebtCardsCount)
     {
         Cards = new [] {trainingCardsCount, codingCardsCount, dailyRoutineCardsCount, taskPrioritizationCardsCount, architectureStudyCardsCount,
-                        continuousDeliveryCardsCount, codeReviewCardsCount, refactoringCardsCount, bonusCardsCount, technicalDebtCardsCount};
+                        continuousIntegrationCardsCount, codeReviewCardsCount, refactoringCardsCount, bonusCardsCount, technicalDebtCardsCount};
     }
 
     public void SetAutomatedCards(int trainingCardsCount, int codingCardsCount, int dailyRoutineCardsCount, int taskPrioritizationCardsCount, int architectureStudyCardsCount,
-                        int continuousDeliveryCardsCount, int codeReviewCardsCount, int refactoringCardsCount, int bonusCardsCount, int technicalDebtCardsCount)
+                        int continuousIntegrationCardsCount, int codeReviewCardsCount, int refactoringCardsCount, int bonusCardsCount, int technicalDebtCardsCount)
     {
         AutomatedCards = new [] {trainingCardsCount, codingCardsCount, dailyRoutineCardsCount, taskPrioritizationCardsCount, architectureStudyCardsCount,
-                        continuousDeliveryCardsCount, codeReviewCardsCount, refactoringCardsCount, bonusCardsCount, technicalDebtCardsCount};
+                        continuousIntegrationCardsCount, codeReviewCardsCount, refactoringCardsCount, bonusCardsCount, technicalDebtCardsCount};
     }
 }
 
@@ -185,33 +185,33 @@ class Player
     }
 
     public void SetCardsInHand(int trainingCardsCount, int codingCardsCount, int dailyRoutineCardsCount, int taskPrioritizationCardsCount, int architectureStudyCardsCount,
-                        int continuousDeliveryCardsCount, int codeReviewCardsCount, int refactoringCardsCount, int bonusCardsCount, int technicalDebtCardsCount)
+                        int continuousIntegrationCardsCount, int codeReviewCardsCount, int refactoringCardsCount, int bonusCardsCount, int technicalDebtCardsCount)
     {
         AvailableCards = new [] {trainingCardsCount, codingCardsCount, dailyRoutineCardsCount, taskPrioritizationCardsCount, architectureStudyCardsCount,
-                        continuousDeliveryCardsCount, codeReviewCardsCount, refactoringCardsCount, bonusCardsCount, technicalDebtCardsCount};
+                        continuousIntegrationCardsCount, codeReviewCardsCount, refactoringCardsCount, bonusCardsCount, technicalDebtCardsCount};
         UsefulCardsInHand = trainingCardsCount + codingCardsCount + dailyRoutineCardsCount + taskPrioritizationCardsCount + architectureStudyCardsCount
-                        + continuousDeliveryCardsCount + codeReviewCardsCount + refactoringCardsCount + bonusCardsCount;
+                        + continuousIntegrationCardsCount + codeReviewCardsCount + refactoringCardsCount + bonusCardsCount;
     }
 
     public void SetAutomatedCards(int trainingCardsCount, int codingCardsCount, int dailyRoutineCardsCount, int taskPrioritizationCardsCount, int architectureStudyCardsCount,
-                        int continuousDeliveryCardsCount, int codeReviewCardsCount, int refactoringCardsCount, int bonusCardsCount, int technicalDebtCardsCount)
+                        int continuousIntegrationCardsCount, int codeReviewCardsCount, int refactoringCardsCount, int bonusCardsCount, int technicalDebtCardsCount)
     {
         AutomatedCards = new [] {trainingCardsCount, codingCardsCount, dailyRoutineCardsCount, taskPrioritizationCardsCount, architectureStudyCardsCount,
-                        continuousDeliveryCardsCount, codeReviewCardsCount, refactoringCardsCount, bonusCardsCount, technicalDebtCardsCount};
+                        continuousIntegrationCardsCount, codeReviewCardsCount, refactoringCardsCount, bonusCardsCount, technicalDebtCardsCount};
     }
 
     public void SetDrawPileCards(int trainingCardsCount, int codingCardsCount, int dailyRoutineCardsCount, int taskPrioritizationCardsCount, int architectureStudyCardsCount,
-                        int continuousDeliveryCardsCount, int codeReviewCardsCount, int refactoringCardsCount, int bonusCardsCount, int technicalDebtCardsCount)
+                        int continuousIntegrationCardsCount, int codeReviewCardsCount, int refactoringCardsCount, int bonusCardsCount, int technicalDebtCardsCount)
     {
         CardsInDrawPile = new [] {trainingCardsCount, codingCardsCount, dailyRoutineCardsCount, taskPrioritizationCardsCount, architectureStudyCardsCount,
-                        continuousDeliveryCardsCount, codeReviewCardsCount, refactoringCardsCount, bonusCardsCount, technicalDebtCardsCount};
+                        continuousIntegrationCardsCount, codeReviewCardsCount, refactoringCardsCount, bonusCardsCount, technicalDebtCardsCount};
     }
 
     public void SetDiscardPileCards(int trainingCardsCount, int codingCardsCount, int dailyRoutineCardsCount, int taskPrioritizationCardsCount, int architectureStudyCardsCount,
-                        int continuousDeliveryCardsCount, int codeReviewCardsCount, int refactoringCardsCount, int bonusCardsCount, int technicalDebtCardsCount)
+                        int continuousIntegrationCardsCount, int codeReviewCardsCount, int refactoringCardsCount, int bonusCardsCount, int technicalDebtCardsCount)
     {
         CardsInDiscardPile = new [] {trainingCardsCount, codingCardsCount, dailyRoutineCardsCount, taskPrioritizationCardsCount, architectureStudyCardsCount,
-                        continuousDeliveryCardsCount, codeReviewCardsCount, refactoringCardsCount, bonusCardsCount, technicalDebtCardsCount};
+                        continuousIntegrationCardsCount, codeReviewCardsCount, refactoringCardsCount, bonusCardsCount, technicalDebtCardsCount};
     }
 
     public int[] MissingSkillsToRelease(Application app)
@@ -253,10 +253,10 @@ class Application
     public int Id;
     public int[] NeededSkills;
 
-    public Application(int id, int trainingNeeded, int codingNeeded, int dailyRoutineNeeded, int taskPrioritizationNeeded, int architectureStudyNeeded, int continuousDeliveryNeeded, int codeReviewNeeded, int refactoringNeeded)
+    public Application(int id, int trainingNeeded, int codingNeeded, int dailyRoutineNeeded, int taskPrioritizationNeeded, int architectureStudyNeeded, int continuousIntegrationNeeded, int codeReviewNeeded, int refactoringNeeded)
     {
         Id = id;
-        NeededSkills = new [] {trainingNeeded, codingNeeded, dailyRoutineNeeded, taskPrioritizationNeeded, architectureStudyNeeded, continuousDeliveryNeeded, codeReviewNeeded, refactoringNeeded};
+        NeededSkills = new [] {trainingNeeded, codingNeeded, dailyRoutineNeeded, taskPrioritizationNeeded, architectureStudyNeeded, continuousIntegrationNeeded, codeReviewNeeded, refactoringNeeded};
         Console.Error.WriteLine(this);
     }
 
