@@ -290,6 +290,7 @@ public class Game {
             bonusCardsPool.push((BonusCard) thrownCard);
         }
         player.addNewCardInHand(cardTaken);
+        view.playerTakesCardInHand(cardTaken);
         if (cardTaken.isGoodActionBonus() && action.getThirdCardType() != CardType.BONUS) {
             gameSummaryManager.addSemiUselessTaskPrioritization(player, action.getThirdCardType());
         } else {

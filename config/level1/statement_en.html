@@ -15,15 +15,15 @@ text-align: left;">
     </div>
 
     <p style="text-align: center; font-weight: 700; margin-bottom: 6px;">
-      Ce challenge se déroule en <b>ligues</b>.
+      This is a <strong>league based</strong> challenge.
     </p>
 
     <div class="statement-league-alert-content">
-      Pour ce challenge, plusieurs ligues pour le même jeu seront disponibles. Quand vous aurez prouvé votre valeur
-      contre le premier Boss, vous accéderez à la ligue supérieure et débloquerez de nouveaux adversaires.<br> <br>
-      Des IAs de base sont disponibles dans le <a target="_blank" rel="nofollow noopener noreferrer"
-        href="https://github.com/societe-generale/GreenCircle/tree/main/starterAIs">kit de démarrage</a>. Elles peuvent
-      vous aider à appréhender votre propre IA.
+      For this challenge, multiple leagues for the same game are available. Once you have proven yourself against the
+            first Boss, you will access a higher league and extra rules will be available.<br> <br>
+      Starter AIs are available in the <a target="_blank" rel="nofollow noopener noreferrer"
+        href="https://github.com/societe-generale/GreenCircle/tree/master/starterAIs">Starter Kit</a>.
+        They can help you get started with your own bot.
     </div>
   </div>
 
@@ -31,8 +31,10 @@ text-align: left;">
   margin-right: 15px;
   margin-bottom: 10px;
   text-align: left;">
-    <p><em>Vidéo d'introduction par <b>Sebastien et Loïc</b>: <a href="https://youtu.be/********" rel="nofollow noopener noreferrer"
-      target="_blank">https://youtu.be/*********</a></em></p>
+    <p><em>Introductory video by <strong>Sebastien and Loïc</strong>: <a href="https://youtu.be/OJxV_zhICls" rel="nofollow noopener noreferrer"
+      target="_blank">https://youtu.be/OJxV_zhICls</a></em></p><br>
+     This challenge is inspired from the board game <a target="_blank" rel="nofollow noopener noreferrer"
+     href="https://okaluda.fr/samsara-le-jeu/">Samsara</a>
   </div>
 
 
@@ -40,13 +42,13 @@ text-align: left;">
   <div class="statement-section statement-goal">
     <h2>
       <span class="icon icon-goal">&nbsp;</span>
-      <span>Objectif</span>
+      <span>Goal</span>
     </h2>
     <div class="statement-goal-content">
       <span>
-      Le jeu se déroule dans le service informatique d’une entreprise. La direction vient de lancer un hackathon sur le thème du Green IT.
-      Deux équipes de développement sont en compétition pour la place de l'équipe la plus efficace.
-      Développez et livrez vos applications avant l'équipe adverse pour maximiser vos points, mais faites attention à la dette technique et à l’aspect Green IT.
+      The game takes place in a company IT department. Management is organizing a hackathon on the Green IT theme.
+      Two development teams are competing to be the most efficient team.
+      Release the required applications before the opponent team to have more points, but respect the Green IT requirements or you'll get drowned in the Technical Debt.
       </span>
     </div>
   </div>
@@ -54,114 +56,112 @@ text-align: left;">
   <div class="statement-section statement-rules">
     <h2>
       <span class="icon icon-rules">&nbsp;</span>
-      <span>Règles</span>
+      <span>Rules</span>
     </h2>
 
     <div class="statement-rules-content">
-      <p>Chaque joueur incarne une équipe de développement informatique. Le jeu se déroule dans un open space contenant 8 postes de travail.
-      Le hackathon se déroule sur plusieurs tours. À chaque tour, les deux joueurs jouent l’un après l’autre.
+      <p>Each player has an IT development team. The game takes place in an office with 8 desks.
+      The hackathon will last many turns. Each turn, the players will play one after the other.
       </p>
-      <p>Ce jeu utilise le principe du <strong>Deck Building</strong>. Chaque équipe aura un lot de cartes <strong>compétences</strong> personnelles qui s'enrichira au cours de la partie.
-      <p>Chaque équipe commence la partie avec 4 cartes compétence <strong>généraliste</strong> et 4 cartes compétence <strong>Dette Technique</strong> Ces cartes seront sa pioche personnelle et sa défausse sera recyclée pour refaire une pioche quand cette dernière sera épuisée.</p>
-      <img src="https://github.fr.world.socgen/societe-generale/GreenCircle/tree/main/src/main/resources/view/assets/Tuto_DeckBuilding.png" />
-      <br>L'équipe pourra récupérer d’autres cartes et en perdre certaines au cours de la partie.
-      </p>
-      <h3 style="font-size: 24px; margin-top: 20px; margin-bottom: 10px; font-weight: 500; line-height: 1.1;">La zone de jeu (Open Space)
+      <p>This game is based on <strong>Deck Building</strong>. Each team will have its own deck of cards that will get bigger during the game.
+      <p>Each team starts the game with <const>4</const> <strong>BONUS skill</strong> cards and <const>4</const> <strong>Technical Debt</strong> cards. Those cards will be their personal draw pile. And their personal discard pile will be reshuffled into the draw pile when it gets empty.</p>
+      <img src="https://raw.githubusercontent.com/societe-generale/GreenCircle/master/config/Tuto_DeckBuilding.png" alt="Deckbuilding: the player discard pile is reshuffled to create the player's draw pile" />
+      <br>The team will get more cards and will lose some during the game.
+      <h3 style="font-size: 24px; margin-top: 20px; margin-bottom: 10px; font-weight: 500; line-height: 1.1;">The game space (the office)
       </h3>
       <p>
-        L’open space est composé de 8 postes de travail, chacun dédié à une tâche particulière
+        The office is made of 8 desks. Each desk is dedicated to a specific skill
        <ul style="padding-left: 20px;padding-bottom: 0">
        <li><p>
-       (Formation <strong>TRAINING</strong> (0)
+       <action>TRAINING</action> (0)
         </p></li>
         <li><p>
-        Développement <strong>CODING</strong> (1)
+        <action>CODING</action> (1)
         </p></li>
         <li><p>
-        Point d'équipe quotidien <strong>DAILY_ROUTINE</strong> (2)
+        <action>DAILY_ROUTINE</action> (2)
          </p></li>
         <li><p>
-        Priorisation des tâches <strong>TASK_PRIORITIZATION</strong> (3)
+        <action>TASK_PRIORITIZATION</action> (3)
          </p></li>
           <li><p>
-         Etude d'architecture <strong>ARCHITECTURE_STUDY</strong> (4)
+         <action>ARCHITECTURE_STUDY</action> (4)
           </p></li>
           <li><p>
-          Intégration Continue <strong>CONTINUOUS_INTEGRATION</strong> (5)
+          <action>CONTINUOUS_INTEGRATION</action> (5)
            </p></li>
           <li><p>
-          Revue de code <strong>CODE_REVIEW</strong> (6)
+          <action>CODE_REVIEW</action> (6)
            </p></li>
            <li><p>
-           <strong>REFACTORING</strong> (7))
+           <action>REFACTORING</action> (7)
            </p></li></ul>
-        <p>Ces postes sont numérotés de 0 à 7. Chacun de ces postes contient 5 cartes de compétence au début de la partie.
-        </p><p>A cause de la covid-19, la direction a imposé un sens de déplacement dans les couloirs afin de ne pas se croiser. On doit donc toujours se déplacer dans le même sens.</p>
-      </p>
+        <p>Those desks are numbered from <const>0</const> to <const>7</const>. Each of those desks contains <const>5</const> <strong>skill</strong> cards at the beginning of the game.
+        </p><p>Due to covid-19, Management enforced a one way path in the office so as not to bump into other people. You must always move in the same direction.</p>
 
-      <h3 style="font-size: 24px; margin-top: 20px; margin-bottom: 10px; font-weight: 500; line-height: 1.1;">Les Applications
+
+      <h3 style="font-size: 24px; margin-top: 20px; margin-bottom: 10px; font-weight: 500; line-height: 1.1;">Applications
       </h3>
       <p>
-        Chaque application nécessite certaines tâches pour être livrée. Les applications sont communes aux deux équipes. Une fois l'application livrée, elle n'est plus livrable par l'autre équipe. </p>
-        <p>Les applications seront de plus en plus grosses au cours des ligues.</p>
-        <p>Une petite application aura besoin de 3 lots de 2 tâches (par ex, 2 <strong>REFACTORING</strong>, 2 <strong>TRAINING</strong> et 2 <strong>CODING</strong>)</p>
-        <p>Une grosse application aura besoin de 2 lots de 4 tâches (par ex, 4 <strong>DAILY_ROUTINE</strong> et 4 <strong>CODE_REVIEW</strong>)</p>
-        <p>Chaque <strong>compétence</strong> généraliste (les cartes <strong>BONUS</strong>) permet de remplir une tâche (n’importe laquelle) de façon correcte et une tâche de façon baclée.</p>
-        <p>Chaque <strong>compétence</strong> spécifique permet de remplir 2 tâches (liées à cette compétence) de façon correcte et 2 tâches (n’importe lesquelles) de façon baclée.</p>
-        <p>Par ex, la compétence <strong>CODING</strong> permet de remplir 2 tâches <strong>CODING</strong>. Et à côté, elle peut aussi remplir 2 tâches <strong>TRAINING</strong> de façon baclée.</p>
-        Chaque tâche baclée lors de la livraison d’une application rapporte une compétence <strong>Dette Technique</strong>. Ces compétences ne servent à rien, à part à ralentir l’équipe de développement quand elles s’accumulent.
-        <img src="https://github.fr.world.socgen/societe-generale/GreenCircle/tree/main/src/main/resources/view/assets/Tuto_Application.png" />
-      </p>
+        Each application needs some skills to be released. Applications are the same for both players. Once an application has been released, it is removed from the game for both players. </p>
+        <p>Applications will get bigger through the leagues.</p>
+        <p>A small application needs 3 sets of 2 skills (like 2 <strong>REFACTORING</strong>, 2 <strong>TRAINING</strong> and 2 <strong>CODING</strong>)</p>
+        <p>A big application needs 2 sets of 4 skills (like 4 <strong>DAILY_ROUTINE</strong> and 4 <strong>CODE_REVIEW</strong>)</p>
+        <p>Each <strong>BONUS skill</strong> card provides one good skill (any of them) and one shoddy skill.</p>
+        <p>Each specific <strong>skill</strong> card provides 2 good skills (of this specific type) and 2 shoddy skills.</p>
+        <p>For instance, a <strong>CODING</strong> card provides 2 <strong>CODING</strong> skills and 2 shoddy skills. Those shoddy skills can be used to replace any missing skill, but the quality will not be there.</p>
+        Each shoddy skill used during an application release will give you a <strong>Technical Debt</strong> card. Those cards are useless. They are only here to slow you down since you can draw some from your draw pile.
+        <br><img src="https://raw.githubusercontent.com/societe-generale/GreenCircle/master/config/Tuto_Application.png" alt="Examples of how to release an application with various skills" />
 
-      <h3 style="font-size: 24px; margin-top: 20px; margin-bottom: 10px; font-weight: 500; line-height: 1.1;">Description d'un tour
+      <h3 style="font-size: 24px; margin-top: 20px; margin-bottom: 10px; font-weight: 500; line-height: 1.1;">Turn Description
       </h3>
       <p>
-        A chaque tour, votre équipe récupère au hasard 4 cartes <strong>compétences</strong> parmi toutes celles qu’elle possède dans sa pioche.
+        At the beginning of your turn, your team draws 4 cards at random from their draw pile.
       </p>
       <p>
-        1.	Déplacement
+        1.	Move
         </p>
         <p>
-        L’équipe commence par changer de poste de travail (afin de laisser la place à d’autres équipes).<br>
-         Elle récupère alors une carte <strong>compétence</strong> correspondant au poste de travail où elle va (formation, revue de code, refactoring, développement...).<br>
-          S’il n’y en a plus de disponible, elle récupère une carte compétence généraliste.
+        The team begins by moving to another desk (they must leave the desk for the other team).<br>
+         They will get one <strong>skill</strong> card from the desk they are moving to (TRAINING, CODE_REVIEW, REFACTORING, CODING...).<br>
+         If the desk is empty (no more cards), the team will get a <strong>BONUS skill</strong> card instead.
       </p>
 
 
         <p>
-          2.	Faire une action
+          2.	Use a skill
         </p>
-        Non applicable dans cette ligue.
+        <p>Will only appear in later leagues.</p>
 
 
       <p>
-        3.	Livrer une application
+        3.	Release an application
       </p>
       <p>
-        L’équipe peut (si elle le désire) utiliser ses <strong>compétences</strong> disponibles en main pour livrer une application.
-         <br>Le jeu ne vous proposera cette phase que si elle est possible.
-        <br>N’oubliez pas, si vous baclez des tâches, vous recevrez de la <strong>Dette Technique</strong> !
+        The team can use their available <strong>skills</strong> in hand to <action>RELEASE</action> an application.
+         <br>This phase will only appear if you have enough <strong>skills</strong> to do it.
+        <br>Don't forget, if you use shoddy skills, you'll receive <strong>Technical Debt</strong> cards!
 
       </p>
+      <br>
       <p>
-        4.	Fin du tour
+        4.	End of the turn
       </p>
       <p>
-        Les <strong>compétences</strong> restant en main et celles jouées sont défaussées.
+        All cards in hand (<strong>skills</strong> and <strong>Technical Debt</strong>) are discarded.
       </p>
     </div>
 
-
       <p>
-        Fin du jeu
+      <h3 style="font-size: 24px; margin-top: 20px; margin-bottom: 10px; font-weight: 500; line-height: 1.1;">  Game end</h3>
       </p>
       <p>
-        Le hackathon s’arrête dés qu’une équipe a réussi à livrer 5 applications.
-        </p><p>Attention, comme le hackathon est sous le thème du Green IT, les organisateurs sont très vigilants sur la qualité de la dernière application livrée.
-         <br>La 5ème application d’une équipe ne pourra donc pas être livrée avec des tâches baclées !</p>
-        <p>A partir du moment où une équipe a livré 5 applications, la partie s’arrête une fois que les deux équipes ont joué autant de tours.</p>
-        <p>Le joueur gagnant est celui qui a livré le plus d’applications.<br>
-        Si les joueurs ont livré le même nombre d’applications, le gagnant est le joueur qui possède le moins de <strong>Dette Technique</strong>.
+        The hackathon stops as soon as one team releases its 5th application.
+        </p><p>Beware, since this hackathon is on the theme of Green IT, the referees will be paying close attention to the quality of the last released application.
+         <br>The 5th application of each team cannot be released with shoddy skills!</p>
+        <p>When a team has released 5 applications, the game will end once all teams have played the same amount of turns.</p>
+        <p>The winner is the team that released the most applications.<br>
+        In case of a tie, the winning team will be the one that has the less <strong>Technical Debt</strong> cards.
       </p>
 
   </div>
@@ -174,15 +174,15 @@ text-align: left;">
     <div class="statement-victory-conditions">
       <div class="icon victory"></div>
       <div class="blk">
-        <div class="title">Conditions de Victoire</div>
+        <div class="title">Victory Conditions</div>
         <div class="text">
           <ul style="padding-top:0; padding-bottom: 0;">
-            <li>Vous avez livré 5 applications avant l'adversaire.</li>
-            <li>Vous avez livré plus d'applications que votre adversaire après <strong>
-                <const>200</const> phases de jeu.
+            <li>You released 5 applications before your opponent.</li>
+            <li>You released more applications than your opponent after <strong>
+                <const>200</const> game phases.
               </strong>
             </li>
-            <li>En cas d'égalité, vous avez moins de <strong>Dette Technique</strong> que votre adversaire.
+            <li>In case of a tie, you have less <strong>Technical Debt</strong> cards than your opponent.
             </li>
           </ul>
         </div>
@@ -192,10 +192,10 @@ text-align: left;">
     <div class="statement-lose-conditions">
       <div class="icon lose"></div>
       <div class="blk">
-        <div class="title">Conditions de Défaite</div>
+        <div class="title">Defeat Conditions</div>
         <div class="text">
           <ul style="padding-top:0; padding-bottom: 0;">
-            <li>Votre programme ne fournit pas d'instruction valide dans le temps imparti.</li>
+            <li>Your program does not provide a valid command in time.</li>
           </ul>
         </div>
       </div>
@@ -206,13 +206,12 @@ text-align: left;">
                       padding-top: 15px;
     color: #838891;
                       padding-bottom: 15px;">
-      🐞 Conseils de débogage</h3>
+      🐞 Debugging tips</h3>
     <ul>
-      <li>Survolez un pion ou une carte pour voir davantage d'informations</li>
-      <li>Ajoutez du texte à la fin d'une instruction pour afficher ce texte au dessus de votre pion</li>
-      <li>Cliquez sur la roue dentée pour afficher les options supplémentaires</li>
-      <li>Utilisez le clavier pour contrôler l'action : espace pour play / pause, les flèches pour avancer pas à pas
-      </li>
+      <li>Hover over a player, card or card pile to see extra information about it</li>
+      <li>Append text after any command and that text will appear above your player</li>
+      <li>Press the gear icon on the viewer to access extra display options</li>
+      <li>Use the keyboard to control the action: space to play/pause, arrows to step 1 frame at a time</li>
     </ul>
   </div>
 
@@ -221,65 +220,79 @@ text-align: left;">
   <div class="statement-section statement-protocol">
     <h2>
       <span class="icon icon-protocol">&nbsp;</span>
-      <span>Entrées / Sorties du Jeu</span>
+      <span>Game Input/Output</span>
     </h2>
     <!-- Protocol block -->
     <div class="blk">
-      <div class="title">Entrées pour un Tour de Jeu</div>
+      <div class="title">Input for One Game Turn</div>
       <div class="text">
-        <span class="statement-lineno">Ligne 1&nbsp;:</span> le nom <var>gamePhase</var> de la phase actuelle avec l’action attendue. Peut être MOVE, <!-- BEGIN level2 level3 -->GIVE_CARD, <!-- END --><!-- BEGIN level3 -->THROW_CARD, <!-- END --><!-- BEGIN level2 level3 -->PLAY_CARD, <!-- END -->RELEASE
+        <span class="statement-lineno">Line 1:</span> <var>gamePhase</var> the name of the current game phase. It can be <const>MOVE</const>,
+        <const>RELEASE</const>
         <br>
-        <span class="statement-lineno">Ligne 2&nbsp;:</span>
-        <var>applicationCount</var> pour le nombre d'applications restant à livrer.
+        <span class="statement-lineno">Line 2:</span>
+        <var>applicationCount</var> for the amount of applications that are still to be released.
         <br>
-        <span class="statement-lineno">Les <var>applicationCount</var> lignes suivantes&nbsp;:</span>
-        le mot APPLICATION suivi de 9 entiers, la description des applications à livrer et les compétences nécessaires pour les livrer (APPLICATION <var>applicationId</var> <var>trainingNeeded</var> <var>codingNeeded</var> <var>dailyRoutineNeeded</var> <var>taskPrioritizationNeeded</var> <var>architectureStudyNeeded</var> <var>continuousDeliveryNeeded</var> <var>codeReviewNeeded</var> <var>refactoringNeeded</var>).
+        <span class="statement-lineno">Next <var>applicationCount</var> lines:</span>
+        the word <const>APPLICATION</const> followed by 9 integers, the description of the application to release and the needed skills to release them (APPLICATION <var>applicationId</var> <var>trainingNeeded</var> <var>codingNeeded</var> <var>dailyRoutineNeeded</var> <var>taskPrioritizationNeeded</var> <var>architectureStudyNeeded</var> <var>continuousDeliveryNeeded</var> <var>codeReviewNeeded</var> <var>refactoringNeeded</var>).
         <br>
-        <span class="statement-lineno">1 ligne par joueur&nbsp;:</span>
-        4 entiers (vous êtes toujours le premier joueur):
-        <var>location</var>: le poste de travail occupé.
-        <var>score</var>: le nombre d’applications livrées.
-        <var>permanentDailyRoutineCards</var>: <!-- BEGIN level1 level2 -->non utilisé dans cette ligue.<!-- END --><!-- BEGIN level3 level4 -->le nombre de cartes point d'équipe quotidien <strong>DAILY_ROUTINE</strong> (2) jouées.<!-- END -->
-        <var>permanentArchitectureStudyCards</var>: <!-- BEGIN level1 -->non utilisé dans cette ligue.<!-- END --><!-- BEGIN level2 level3 level4 -->le nombre de cartes étude d'architecture <strong>ARCHITECTURE_STUDY</strong> (2) jouées.<!-- END -->
+        <span class="statement-lineno">1 line per player:</span>
+        4 integers (Your data is always given first):
+        <ul><li><var>location</var> : the desk currently used by the player (-1 in the first turn).</li></ul>
+        <ul><li><var>score</var> : the amount of released applications.</li></ul>
+        <ul><li><var>permanentDailyRoutineCards</var> :
+        ignore for this league.
+        </li></ul>
+        <ul><li><var>permanentArchitectureStudyCards</var> :
+        ignore for this league.
+        </li></ul>
         <br>
-        <span class="statement-lineno">Ligne suivante&nbsp;:</span>
-        <var>cardLocationsCount</var> pour le nombre d'emplacements où on a des cartes.
+        <span class="statement-lineno">Next line:</span>
+        <var>cardLocationsCount</var> for the amount of locations where the players have some cards.
         <br>
-        <span class="statement-lineno">Les <var>cardLocationsCount</var> lignes suivantes&nbsp;:</span>
-        le nom de l'emplacement suivi de 10 entiers, le nombre de cartes de chaque type dans cet emplacement (<var>cardLocation</var> <var>trainingCardsCount</var> <var>codingCardsCount</var> <var>dailyRoutineCardsCount</var> <var>taskPrioritizationCardsCount</var> <var>architectureStudyCardsCount</var> <var>continuousDeliveryCardsCount</var> <var>codeReviewCardsCount</var> <var>refactoringCardsCount</var> <var>bonusCardsCount</var> <var>technicalDebtCardsCount</var>).
-        L'emplacement peut être HAND, DRAW, DISCARD<!-- BEGIN level1 level2 --> or OPPONENT_CARDS<!-- END --><!-- BEGIN level3 level4 -->, AUTOMATED, OPPONENT_CARDS or OPPONENT_AUTOMATED<!-- END -->
+        <span class="statement-lineno">Next <var>cardLocationsCount</var> lines:</span>
+        the location name followed by 10 integers, the number of cards in this location (<var>cardLocation</var> <var>trainingCardsCount</var> <var>codingCardsCount</var> <var>dailyRoutineCardsCount</var> <var>taskPrioritizationCardsCount</var> <var>architectureStudyCardsCount</var> <var>continuousDeliveryCardsCount</var> <var>codeReviewCardsCount</var> <var>refactoringCardsCount</var> <var>bonusCardsCount</var> <var>technicalDebtCardsCount</var>).
+        Location can be <const>HAND</const>, <const>DRAW</const>, <const>DISCARD</const>
+         or <const>OPPONENT_CARDS</const> (all the opponent's cards in their hand, draw and discard)
         <br>
-        <span class="statement-lineno">Ligne suivante&nbsp;:</span>
-        <var>possibleMovesCount</var> pour le nombre de coups possibles à jouer.
+        <span class="statement-lineno">Next line:</span>
+        <var>possibleMovesCount</var> for the amount of possible actions.
         <br>
-        <span class="statement-lineno">Les <var>possibleMovesCount</var> lignes suivantes&nbsp;:</span>
-        une chaine de caractères, un coup possible.
+        <span class="statement-lineno">Next <var>possibleMovesCount</var> lines:</span>
+        a string, one possible action.
         <br>
       </div>
     </div>
     <!-- Protocol block -->
     <div class="blk">
-      <div class="title">Sorties pour un Tour de Jeu</div>
+      <div class="title">Output for One Game Turn</div>
       <div class="text">
-          <span class="statement-lineno">1 ligne</span> contenant l'une des actions suivantes selon les phases de jeu&nbsp;:
-          <ul style="padding-left: 20px;padding-top: 0">
-            <li>
-              <action>RANDOM</action>&nbsp;: le joueur choisit de faire une des actions possibles au hasard.
-            </li>
-            <li>
-              <action>WAIT</action>&nbsp;: le joueur choisit de ne pas faire l'action optionnelle.
-            </li>
-            <li>
-              <action>MOVE</action> <var>zoneId</var>&nbsp;: le joueur se déplace sur le poste de travail donné.
-              <br>Cette action est obligatoire et n'est disponible que dans la phase MOVE.
-            </li>
-            <li>
-              <action>RELEASE</action> <var>applicationId</var>&nbsp;: le joueur livre l'application donnée.
-              <br>Cette action est facultative et n'est disponible que dans la phase RELEASE.
+          <span class="statement-lineno">1 line</span> containing one of the following actions depending on the game phase:
+          <ul><li>
+              <action>RANDOM</action>: the player decides to do one of the possible action at random.
+            </li></ul>
+            <ul><li>
+              <action>WAIT</action>: the player decides not to do any optional action.
+            </li></ul>
+            <ul><li>
+              <action>MOVE</action> <var>zoneId</var>: the player moves to another desk.
+              <br>This action is mandatory and is only available in the MOVE phase.
+            </li></ul>
+
+
+
+
+
+
+
+
+
+            <ul><li>
+              <action>RELEASE</action> <var>applicationId</var>: the player releases an application.
+              <br>This action is optional and is only available in the RELEASE phase.
             </li>
           </ul>
-        Ajoutez du texte à la fin d'une instruction pour afficher ce texte au dessus de votre pion.
-        <br><br> Exemples: <ul style="padding-top:0; padding-bottom: 0;">
+        You may append text to a command to have it displayed in the viewer above your player.
+        <br><br> Examples: <ul style="padding-top:0; padding-bottom: 0;">
           <li>
             <action>MOVE 3</action>
           </li>
@@ -287,19 +300,19 @@ text-align: left;">
             <action>RELEASE 16</action>
           </li>
           <li>
-            <action>WAIT rien à faire...</action>
+            <action>WAIT nothing to do...</action>
           </li>
           <li>
-            <action>RANDOM je n'ai pas d'idée...</action>
+            <action>RANDOM got no idea...</action>
           </li>
         </ul>
       </div>
     </div>
     <div class="blk">
-      <div class="title">Contraintes</div>
+      <div class="title">Constraints</div>
       <div class="text">
-        Temps de réponse par tour ≤ <const>30</const>ms (on économise les ressources quand on fait du Green IT)<br>
-        Temps de réponse au premier tour ≤ <const>1000</const>ms
+        Response time per turn ≤ <const>50</const>ms (Doing Green IT means sparing resources)<br>
+        Response time for the first turn ≤ <const>1000</const>ms
       </div>
     </div>
   </div>
@@ -314,14 +327,37 @@ text-align: left;">
         src="//cdn.codingame.com/smash-the-code/statement/league_wood_04.png" /></div>
 
     <div style="text-align: center; font-weight: 700; margin-bottom: 6px;">
-      Qu'est-ce qui m'attend dans les prochaines ligues&nbsp;?
+      What is in store for me in the higher leagues?
     </div>
-    Les nouvelles règles débloquées dans les prochaines ligues sont&nbsp;:
+    Extra rules available in higher leagues are:
     <ul>
-      <li>Les joueurs pourront jouer certaines cartes</li>
-      <li>Un joueur devra donner une carte à son adversaire s'il se place trop près de lui (pas des dettes techniques)</li>
-      <li>La moitié des applications nécessiteront plus de ressources</li>
+      <li>Players will have the ability to play some skill cards</li>
+      <li>Players will have to give one skill card to their opponent if they move too close to them</li>
+      <li>Half of the applications will need more skills to be released</li>
     </ul>
+  </div>
+
+  <div>
+  <div style="text-align: center; font-weight: 700; margin-bottom: 6px;">
+        If you want to know more on Green IT (in French)
+      </div>
+      <p><em>Societe Generale ambitions on Green IT&nbsp;:
+      <a href="https://youtu.be/ZstnO7j1y4c" rel="nofollow noopener noreferrer" target="_blank">https://youtu.be/ZstnO7j1y4c</a></em></p>
+
+      <p>Our partnership with INR and our signing of the Sustainable IT Charter&nbsp;:
+      <a href="https://careers.societegenerale.com/green-it-program " rel="nofollow noopener noreferrer" target="_blank">https://careers.societegenerale.com/green-it-program </a></p>
+
+      <p>
+      Our experts Masterclasses in video – to know everything on Green IT</p>
+          <p><em>Masterclass #1 Why doing Sustainable IT?&nbsp;: <a href="https://youtu.be/eLffG8Z0iXU" rel="nofollow noopener noreferrer"
+            target="_blank">https://youtu.be/eLffG8Z0iXU</a></em></p>
+          <p><em>Masterclass #2 E-accessibility stakes for IT&nbsp;: <a href="https://youtu.be/oRA_CrGxGgw" rel="nofollow noopener noreferrer"
+            target="_blank">https://youtu.be/oRA_CrGxGgw</a></em></p>
+          <p><em>Masterclass #3 Architecture and Green IT&nbsp;: <a href="https://youtu.be/x2fMjGqinLA" rel="nofollow noopener noreferrer"
+            target="_blank">https://youtu.be/x2fMjGqinLA</a></em></p>
+          <p><em>Masterclass #4 Moving to a sustainable IT design&nbsp;: <a href="https://youtu.be/kb2PM7OniRk" rel="nofollow noopener noreferrer"
+            target="_blank">https://youtu.be/kb2PM7OniRk</a></em></p>
+
   </div>
 </div>
 <!-- SHOW_SAVE_PDF_BUTTON -->

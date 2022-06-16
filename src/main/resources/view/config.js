@@ -22,3 +22,5 @@ export const playerColors = [
 ]
 
 export const gameName = 'GreenCircle'
+
+export const stepByStepAnimateSpeed = 3

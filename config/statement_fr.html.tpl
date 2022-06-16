@@ -31,7 +31,7 @@ text-align: left;">
       contre le premier Boss, vous accéderez à la ligue supérieure et débloquerez de nouveaux adversaires.<br> <br>
       <!-- END -->
       Des IAs de base sont disponibles dans le <a target="_blank" rel="nofollow noopener noreferrer"
-        href="https://github.com/societe-generale/GreenCircle/tree/main/starterAIs">kit de démarrage</a>. Elles peuvent
+        href="https://github.com/societe-generale/GreenCircle/tree/master/starterAIs">kit de démarrage</a>. Elles peuvent
       vous aider à appréhender votre propre IA.
     </div>
   </div>
@@ -40,8 +40,10 @@ text-align: left;">
   margin-right: 15px;
   margin-bottom: 10px;
   text-align: left;">
-    <p><em>Vidéo d'introduction par <strong>Sebastien et Loïc</strong>: <a href="https://youtu.be/********" rel="nofollow noopener noreferrer"
-      target="_blank">https://youtu.be/*********</a></em></p>
+    <p><em>Vidéo d'introduction par <strong>Sebastien et Loïc</strong>: <a href="https://youtu.be/OJxV_zhICls" rel="nofollow noopener noreferrer"
+      target="_blank">https://youtu.be/OJxV_zhICls</a></em></p><br>
+     Ce challenge est inspiré du jeu de société <a target="_blank" rel="nofollow noopener noreferrer"
+     href="https://okaluda.fr/samsara-le-jeu/">Samsara</a>
   </div>
 
 
@@ -70,9 +72,9 @@ text-align: left;">
       <p>Chaque joueur incarne une équipe de développement informatique. Le jeu se déroule dans un open space contenant 8 postes de travail.
       Le hackathon se déroule sur plusieurs tours. À chaque tour, les deux joueurs jouent l’un après l’autre.
       </p>
-      <p>Ce jeu utilise le principe du <strong>Deck Building</strong>. Chaque équipe aura un lot de cartes <strong>compétences</strong> personnelles qui s'enrichira au cours de la partie.
-      <p>Chaque équipe commence la partie avec 4 cartes compétence <strong>généraliste</strong> et 4 cartes <strong>Dette Technique</strong> Ces cartes seront sa pioche personnelle et sa défausse sera recyclée pour refaire une pioche quand cette dernière sera épuisée.</p>
-      <img src="https://github.fr.world.socgen/societe-generale/GreenCircle/tree/main/src/main/resources/view/assets/Tuto_DeckBuilding.png" alt="Deckbuilding: la défausse du joueur est mélangée pour créer sa pioche" />
+      <p>Ce jeu utilise le principe du <strong>Deck Building</strong>. Chaque équipe aura un lot de cartes personnelles qui s'enrichira au cours de la partie.
+      <p>Chaque équipe commence la partie avec <const>4</const> cartes <strong>compétence BONUS</strong> et <const>4</const> cartes <strong>Dette Technique</strong> Ces cartes seront sa pioche personnelle et sa défausse sera recyclée pour refaire une pioche quand cette dernière sera épuisée.</p>
+      <img src="https://raw.githubusercontent.com/societe-generale/GreenCircle/master/config/Tuto_DeckBuilding.png" alt="Deckbuilding: la défausse du joueur est mélangée pour créer sa pioche" />
       <br>L'équipe pourra récupérer d’autres cartes et en perdre certaines au cours de la partie.
       <h3 style="font-size: 24px; margin-top: 20px; margin-bottom: 10px; font-weight: 500; line-height: 1.1;">La zone de jeu (Open Space)
       </h3>
@@ -80,30 +82,30 @@ text-align: left;">
         L’open space est composé de 8 postes de travail, chacun dédié à une tâche particulière
        <ul style="padding-left: 20px;padding-bottom: 0">
        <li><p>
-       Formation <strong>TRAINING</strong> (0)
+       Formation <action>TRAINING</action> (0)
         </p></li>
         <li><p>
-        Développement <strong>CODING</strong> (1)
+        Développement <action>CODING</action> (1)
         </p></li>
         <li><p>
-        Point d'équipe quotidien <strong>DAILY_ROUTINE</strong> (2)
+        Point d'équipe quotidien <action>DAILY_ROUTINE</action> (2)
          </p></li>
         <li><p>
-        Priorisation des tâches <strong>TASK_PRIORITIZATION</strong> (3)
+        Priorisation des tâches <action>TASK_PRIORITIZATION</action> (3)
          </p></li>
           <li><p>
-         Etude d'architecture <strong>ARCHITECTURE_STUDY</strong> (4)
+         Etude d'architecture <action>ARCHITECTURE_STUDY</action> (4)
           </p></li>
           <li><p>
-          Intégration Continue <strong>CONTINUOUS_INTEGRATION</strong> (5)
+          Intégration Continue <action>CONTINUOUS_INTEGRATION</action> (5)
            </p></li>
           <li><p>
-          Revue de code <strong>CODE_REVIEW</strong> (6)
+          Revue de code <action>CODE_REVIEW</action> (6)
            </p></li>
            <li><p>
-           <strong>REFACTORING</strong> (7)
+           <action>REFACTORING</action> (7)
            </p></li></ul>
-        <p>Ces postes sont numérotés de 0 à 7. Chacun de ces postes contient 5 cartes de compétence au début de la partie.
+        <p>Ces postes sont numérotés de <const>0</const> à <const>7</const>. Chacun de ces postes contient <const>5</const> cartes de compétence au début de la partie.
         </p><p>A cause de la covid-19, la direction a imposé un sens de déplacement dans les couloirs afin de ne pas se croiser. On doit donc toujours se déplacer dans le même sens.</p>
       <!-- BEGIN level3 -->
       <div class="statement-new-league-rule">
@@ -123,11 +125,11 @@ text-align: left;">
         <p>Les applications seront de plus en plus grosses au cours des ligues.</p>
         <p>Une petite application aura besoin de 3 lots de 2 tâches (par ex, 2 <strong>REFACTORING</strong>, 2 <strong>TRAINING</strong> et 2 <strong>CODING</strong>)</p>
         <p>Une grosse application aura besoin de 2 lots de 4 tâches (par ex, 4 <strong>DAILY_ROUTINE</strong> et 4 <strong>CODE_REVIEW</strong>)</p>
-        <p>Chaque <strong>compétence</strong> généraliste (les cartes <strong>BONUS</strong>) permet de remplir une tâche (n’importe laquelle) de façon correcte et une tâche de façon baclée.</p>
-        <p>Chaque <strong>compétence</strong> spécifique permet de remplir 2 tâches (liées à cette compétence) de façon correcte et 2 tâches (n’importe lesquelles) de façon baclée.</p>
-        <p>Par ex, la compétence <strong>CODING</strong> permet de remplir 2 tâches <strong>CODING</strong>. Et à côté, elle peut aussi remplir 2 tâches <strong>TRAINING</strong> de façon baclée.</p>
-        Chaque tâche baclée lors de la livraison d’une application rapporte une carte <strong>Dette Technique</strong>. Ces cartes ne servent à rien, à part à ralentir l’équipe de développement quand elles s’accumulent en encombrant la main tirée au début de chaque tour.
-        <img src="https://github.fr.world.socgen/societe-generale/GreenCircle/tree/main/src/main/resources/view/assets/Tuto_Application.png" alt="Exemples de livraison d'une application avec différentes compétences" />
+        <p>Chaque <strong>compétence BONUS</strong> permet de remplir une tâche (n’importe laquelle) de façon correcte et une tâche de façon baclée.</p>
+        <p>Chaque <strong>compétence</strong> spécifique permet de remplir 2 tâches (liées à cette compétence) de façon correcte et 2 tâches (n’importe lesquelles) de façon bâclée.</p>
+        <p>Par ex, la compétence <strong>CODING</strong> permet de remplir 2 tâches <strong>CODING</strong>. Et à côté, elle peut aussi remplir 2 tâches <strong>TRAINING</strong> de façon bâclée.</p>
+        Chaque tâche bâclée lors de la livraison d’une application rapporte une carte <strong>Dette Technique</strong>. Ces cartes ne servent à rien, à part à ralentir l’équipe de développement quand elles s’accumulent en encombrant la main tirée au début de chaque tour.
+        <img src="https://raw.githubusercontent.com/societe-generale/GreenCircle/master/config/Tuto_Application.png" alt="Exemples de livraison d'une application avec différentes compétences" />
 
       <h3 style="font-size: 24px; margin-top: 20px; margin-bottom: 10px; font-weight: 500; line-height: 1.1;">Description d'un tour
       </h3>
@@ -140,7 +142,7 @@ text-align: left;">
         <p>
         L’équipe commence par changer de poste de travail (afin de laisser la place à d’autres équipes).<br>
          Elle récupère alors une carte <strong>compétence</strong> correspondant au poste de travail où elle va (formation, revue de code, refactoring, développement...).<br>
-          S’il n’y en a plus de disponible, elle récupère une carte compétence généraliste.
+          S’il n’y en a plus de disponible, elle récupère une carte <strong>compétence BONUS</strong>.
       </p>
 
       <!-- BEGIN level2 -->
@@ -163,7 +165,8 @@ text-align: left;">
         <!-- BEGIN level3 level4 -->
         <p>
           Si l’équipe passe par le poste des <strong>tâches administratives</strong> (entre le poste 7 et le poste 0), elle perd 2 <strong>compétences</strong> de son choix.
-          <br>Si elle n’en a pas assez, elle récupère une carte <strong>Dette Technique</strong> par <strong>compétence</strong> manquante.
+          <br>  <img src="https://raw.githubusercontent.com/societe-generale/GreenCircle/master/config/level3/Tuto_Admin_Task.png" alt="Perte de cartes due à la tâche administrative" />
+        <br>Si elle n’en a pas assez, elle récupère une carte <strong>Dette Technique</strong> par <strong>compétence</strong> manquante.
         </p>
         <!-- END -->
         <!-- BEGIN level3 -->
@@ -183,7 +186,7 @@ text-align: left;">
           Après son déplacement, l’équipe peut (si elle le désire), utiliser une de ses <strong>compétences</strong> disponibles (en main). Le jeu ne vous proposera cette phase que si elle est possible.
           Liste des compétences et leurs effets:
           <ul>
-          <li>Formation <strong>TRAINING</strong> (0). L’équipe récupère 2 cartes <strong>compétences</strong> de sa pioche et peut jouer une carte de plus.</li>
+          <li>Formation <action>TRAINING</action> (0). L’équipe pioche 2 cartes de sa pioche et peut jouer une carte de plus.</li>
           </ul>
         <!-- END -->
       <!-- BEGIN level2 -->
@@ -194,12 +197,12 @@ text-align: left;">
       <!-- END -->
       <!-- BEGIN level3 level4 -->
       <ul>
-          <li>Développement <strong>CODING</strong> (1). L’équipe récupère 1 carte <strong>compétence</strong> de sa pioche et peut jouer deux cartes de plus.</li>
+          <li>Développement <action>CODING</action> (1). L’équipe pioche 1 carte de sa pioche et peut jouer deux cartes de plus.</li>
       </ul><ul>
-         <li>Point d'équipe quotidien <strong>DAILY_ROUTINE</strong> (2). Cette <strong>compétence</strong> est permanente&nbsp;: une fois jouée, elle reste active jusqu’à ce que l’équipe ait livré une application.
+         <li>Point d'équipe quotidien <action>DAILY_ROUTINE</action> (2). Cette <strong>compétence</strong> est permanente&nbsp;: une fois jouée, elle reste active jusqu’à ce que l’équipe ait livré une application.
          <br>Après son déplacement, l’équipe pourra récupérer une carte <strong>compétence</strong> d’un poste de travail éloigné de 1. L’effet peut être cumulatif.</li>
       </ul><ul>
-         <li>Priorisation des tâches <strong>TASK_PRIORITIZATION</strong> (3). L’équipe se débarrasse d’une carte <strong>compétence</strong> de sa main et récupère une carte <strong>compétence</strong> disponible sur le plateau de jeu.</li>
+         <li>Priorisation des tâches <action>TASK_PRIORITIZATION</action> (3). L’équipe se débarrasse d’une carte <strong>compétence</strong> de sa main et récupère une carte <strong>compétence</strong> disponible sur le plateau de jeu.</li>
           </ul>
       <!-- END -->
       <!-- BEGIN level3 -->
@@ -210,8 +213,8 @@ text-align: left;">
         <!-- END -->
         <!-- BEGIN level2 level3 level4 -->
       <ul>
-          <li>Etude d'architecture <strong>ARCHITECTURE_STUDY</strong> (4). Cette <strong>compétence</strong> est permanente&nbsp;: une fois jouée, elle reste active jusqu’à ce que l’équipe ait livré une application.
-          <br>L’équipe piochera une carte <strong>compétence</strong> de plus au début de son tour. L’effet peut être cumulatif.</li>
+          <li>Etude d'architecture <action>ARCHITECTURE_STUDY</action> (4). Cette <strong>compétence</strong> est permanente&nbsp;: une fois jouée, elle reste active jusqu’à ce que l’équipe ait livré une application.
+          <br>L’équipe piochera une carte de plus au début de son tour. L’effet peut être cumulatif.</li>
       </ul>
         <!-- END -->
         <!-- BEGIN level2 -->
@@ -222,7 +225,7 @@ text-align: left;">
         <!-- END -->
         <!-- BEGIN level3 level4 -->
               <ul>
-  <li>Intégration Continue <strong>CONTINUOUS_INTEGRATION</strong> (5). L’équipe automatise une de ses <strong>compétences</strong> disponibles dans sa main. <br>Cette carte ne sera pas défaussée à la fin du tour (elle sera toujours disponible) et ne pourra servir que pour livrer une application.</li>
+  <li>Intégration Continue <action>CONTINUOUS_INTEGRATION</action> (5). L’équipe automatise une de ses <strong>compétences</strong> disponibles dans sa main. <br>Cette carte ne sera pas défaussée à la fin du tour (elle sera toujours disponible) et ne pourra servir que pour livrer une application.</li>
       </ul>
       <!-- END -->
       <!-- BEGIN level3 -->
@@ -233,10 +236,10 @@ text-align: left;">
         <!-- END -->
         <!-- BEGIN level2 level3 level4 -->
         <ul>
-          <li>Revue de code <strong>CODE_REVIEW</strong> (6). L’équipe récupère 2 nouvelles <strong>compétences</strong> généralistes et les met dans sa défausse.</li>
+          <li>Revue de code <action>CODE_REVIEW</action> (6). L’équipe récupère 2 nouvelles cartes <strong>compétence BONUS</strong> et les met dans sa défausse.</li>
         </ul>
         <ul>
-          <li><strong>REFACTORING</strong>(7). L’équipe se débarrasse définitivement d’une carte <strong>Dette Technique</strong> de sa main.</li>
+          <li><action>REFACTORING</action>(7). L’équipe se débarrasse définitivement d’une carte <strong>Dette Technique</strong> de sa main.</li>
         </ul>
         <!-- END -->
         <!-- BEGIN level2 -->
@@ -249,7 +252,7 @@ text-align: left;">
       <p>
         L’équipe peut (si elle le désire) utiliser ses <strong>compétences</strong> disponibles en main pour livrer une application.
          <br>Le jeu ne vous proposera cette phase que si elle est possible.
-        <br>N’oubliez pas, si vous baclez des tâches, vous recevrez des cartes <strong>Dette Technique</strong> !
+        <br>N’oubliez pas, si vous bâclez des tâches, vous recevrez des cartes <strong>Dette Technique</strong> !
 
           <!-- BEGIN level2 -->
           <div class="statement-new-league-rule">
@@ -265,17 +268,17 @@ text-align: left;">
         4.	Fin du tour
       </p>
       <p>
-        Les <strong>compétences</strong> restant en main et celles jouées sont défaussées.
+        Les cartes restant en main (<strong>compétences</strong> et <strong>Dette Technique</strong>) sont défaussées.
       </p>
     </div>
 
       <p>
-        Fin du jeu
+       <h3 style="font-size: 24px; margin-top: 20px; margin-bottom: 10px; font-weight: 500; line-height: 1.1;">  Fin du jeu </h3>
       </p>
       <p>
         Le hackathon s’arrête dès qu’une équipe a réussi à livrer 5 applications.
         </p><p>Attention, comme le hackathon est sous le thème du Green IT, les organisateurs sont très vigilants sur la qualité de la dernière application livrée.
-         <br>La 5ème application d’une équipe ne pourra donc pas être livrée avec des tâches baclées !</p>
+         <br>La 5ème application d’une équipe ne pourra donc pas être livrée avec des tâches bâclées !</p>
         <p>A partir du moment où une équipe a livré 5 applications, la partie s’arrête une fois que les deux équipes ont joué autant de tours.</p>
         <p>Le joueur gagnant est celui qui a livré le plus d’applications.<br>
         Si les joueurs ont livré le même nombre d’applications, le gagnant est le joueur qui possède le moins de cartes <strong>Dette Technique</strong>.
@@ -325,7 +328,7 @@ text-align: left;">
                       padding-bottom: 15px;">
       🐞 Conseils de débogage</h3>
     <ul>
-      <li>Survolez un pion ou une carte pour voir davantage d'informations</li>
+      <li>Survolez un pion, une carte ou une pile de cartes pour voir davantage d'informations</li>
       <li>Ajoutez du texte à la fin d'une instruction pour afficher ce texte au-dessus de votre pion</li>
       <li>Cliquez sur la roue dentée pour afficher les options supplémentaires</li>
       <li>Utilisez le clavier pour contrôler l'action : espace pour play / pause, les flèches pour avancer pas à pas
@@ -345,12 +348,7 @@ text-align: left;">
         <ul style="padding-left: 20px;padding-bottom: 0">
           <li>
             <p>
-              Les joueurs commencent la partie avec 4 <strong>Compétences Généralistes</strong> et 4 <strong>Dettes Techniques</strong> dans leur pioche.
-            </p>
-          </li>
-          <li>
-            <p>
-              Le jeu commence avec 5 cartes <strong>compétence</strong> sur chaque poste de travail, 36 cartes de <strong>Compétences Généralistes</strong> et 100 cartes de <strong>Dette Technique</strong>.
+              Le jeu commence avec 5 cartes <strong>compétence</strong> sur chaque poste de travail, 36 cartes de <strong>Compétences BONUS</strong> et 100 cartes de <strong>Dette Technique</strong> dnas les pioches communes.
             </p>
           </li>
           <li>
@@ -361,7 +359,8 @@ text-align: left;">
           </li>
           <li>
             <p>
-              Si vous devez piocher une carte de zone et qu'il n'y en a plus, vous prendrez une carte de <strong>compétence</strong> généraliste (BONUS) à la place.
+              Si vous devez piocher une carte de zone et qu'il n'y en a plus, vous prendrez une carte de <strong>compétence BONUS</strong> à la place.
+              <br>S'il n'y a plus de carte de <strong>compétence BONUS</strong> disponible, vous n'obtiendrez aucune carte.
             </p>
           </li>
           <li>
@@ -371,7 +370,7 @@ text-align: left;">
           </li>
           <li>
             <p>
-              La 5me application ne peut pas être livrée en baclant des tâches. Il vous faudra donc le paiement exact.
+              La 5ème application ne peut pas être livrée en bâclant des tâches. Il vous faudra donc le paiement exact.
             </p>
           </li>
           <li>
@@ -397,27 +396,27 @@ text-align: left;">
     <div class="blk">
       <div class="title">Entrées pour un Tour de Jeu</div>
       <div class="text">
-        <span class="statement-lineno">Ligne 1&nbsp;:</span> le nom <var>gamePhase</var> de la phase actuelle avec l’action attendue. Peut être MOVE,
+        <span class="statement-lineno">Ligne 1&nbsp;:</span> le nom <var>gamePhase</var> de la phase actuelle avec l’action attendue. Peut être <const>MOVE</const>,
         <!-- BEGIN level2 level3 -->
-        GIVE_CARD,
+        <const>GIVE_CARD</const>,
         <!-- END -->
         <!-- BEGIN level3 -->
-        THROW_CARD,
+        <const>THROW_CARD</const>,
         <!-- END -->
         <!-- BEGIN level2 level3 -->
-        PLAY_CARD,
+        <const>PLAY_CARD</const>,
         <!-- END -->
-        RELEASE
+        <const>RELEASE</const>
         <br>
         <span class="statement-lineno">Ligne 2&nbsp;:</span>
         <var>applicationCount</var> pour le nombre d'applications restant à livrer.
         <br>
         <span class="statement-lineno">Les <var>applicationCount</var> lignes suivantes&nbsp;:</span>
-        le mot APPLICATION suivi de 9 entiers, la description des applications à livrer et les compétences nécessaires pour les livrer (APPLICATION <var>applicationId</var> <var>trainingNeeded</var> <var>codingNeeded</var> <var>dailyRoutineNeeded</var> <var>taskPrioritizationNeeded</var> <var>architectureStudyNeeded</var> <var>continuousDeliveryNeeded</var> <var>codeReviewNeeded</var> <var>refactoringNeeded</var>).
+        le mot <const>APPLICATION</const> suivi de 9 entiers, la description des applications à livrer et les compétences nécessaires pour les livrer (APPLICATION <var>applicationId</var> <var>trainingNeeded</var> <var>codingNeeded</var> <var>dailyRoutineNeeded</var> <var>taskPrioritizationNeeded</var> <var>architectureStudyNeeded</var> <var>continuousDeliveryNeeded</var> <var>codeReviewNeeded</var> <var>refactoringNeeded</var>).
         <br>
         <span class="statement-lineno">1 ligne par joueur&nbsp;:</span>
         4 entiers (vous êtes toujours le premier joueur):
-        <ul><li><var>location</var> : le poste de travail occupé.</li></ul>
+        <ul><li><var>location</var> : le poste de travail occupé (-1 au premier tour).</li></ul>
         <ul><li><var>score</var> : le nombre d’applications livrées.</li></ul>
         <ul><li><var>permanentDailyRoutineCards</var> :
         <!-- BEGIN level1 level2 -->
@@ -441,12 +440,12 @@ text-align: left;">
         <br>
         <span class="statement-lineno">Les <var>cardLocationsCount</var> lignes suivantes&nbsp;:</span>
         le nom de l'emplacement suivi de 10 entiers, le nombre de cartes de chaque type dans cet emplacement (<var>cardLocation</var> <var>trainingCardsCount</var> <var>codingCardsCount</var> <var>dailyRoutineCardsCount</var> <var>taskPrioritizationCardsCount</var> <var>architectureStudyCardsCount</var> <var>continuousDeliveryCardsCount</var> <var>codeReviewCardsCount</var> <var>refactoringCardsCount</var> <var>bonusCardsCount</var> <var>technicalDebtCardsCount</var>).
-        L'emplacement peut être HAND, DRAW, DISCARD
+        L'emplacement peut être <const>HAND</const> votre main, <const>DRAW</const> votre pioche, <const>DISCARD</const> votre défausse
         <!-- BEGIN level1 level2 -->
-         or OPPONENT_CARDS
+         ou <const>OPPONENT_CARDS</const> (l'ensemble des cartes de l'adversaire entre sa main, sa pioche et sa défausse)
          <!-- END -->
          <!-- BEGIN level3 level4 -->
-         , AUTOMATED, OPPONENT_CARDS or OPPONENT_AUTOMATED
+         , <const>AUTOMATED</const>, <const>OPPONENT_CARDS</const> (l'ensemble des cartes de l'adversaire entre sa main, sa pioche et sa défausse) ou <const>OPPONENT_AUTOMATED</const>
          <!-- END -->
         <br>
         <span class="statement-lineno">Ligne suivante&nbsp;:</span>
@@ -489,7 +488,7 @@ text-align: left;">
             <!-- END -->
             <!-- BEGIN level2 level3 level4 -->
             <ul><li>
-              <action>GIVE</action> <var>cardTypeId</var>&nbsp;: le joueur donne une carte du type donné à son adversaire.
+              <action>GIVE</action> <var>cardTypeId</var>&nbsp;: le joueur donne une carte du type donné à son adversaire depuis sa main.
               <br>Cette action est obligatoire et n'est disponible que dans la phase GIVE_CARD.
             </li></ul>
             <!-- END -->
@@ -501,7 +500,7 @@ text-align: left;">
             <!-- END -->
             <!-- BEGIN level3 level4 -->
             <ul><li>
-              <action>THROW</action> <var>cardTypeId</var>&nbsp;: le joueur remet sur le plateau de jeu une carte du type donné.
+              <action>THROW</action> <var>cardTypeId</var>&nbsp;: le joueur remet sur le plateau de jeu une carte du type donné depuis sa main.
               <br>Cette action est obligatoire et n'est disponible que dans la phase THROW_CARD.
             </li></ul>
             <!-- END -->
@@ -654,7 +653,7 @@ text-align: left;">
     <div class="blk">
       <div class="title">Contraintes</div>
       <div class="text">
-        Temps de réponse par tour ≤ <const>30</const>ms (on économise les ressources quand on fait du Green IT)<br>
+        Temps de réponse par tour ≤ <const>50</const>ms (on économise les ressources quand on fait du Green IT)<br>
         Temps de réponse au premier tour ≤ <const>1000</const>ms
       </div>
     </div>
