@@ -11,7 +11,7 @@ To test the game or change the league, do it in the SkeletonMain
 
 ## Community starter AIs
 They are located here:
-https://github.com/societe_generale/GreenCircle/tree/master/starterAIs
+https://github.com/societe-generale/GreenCircle/tree/master/starterAIs
 
 
 ## Acknowledgement
