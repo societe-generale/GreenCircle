@@ -351,7 +351,7 @@ text-align: left;">
         <ul style="padding-left: 20px;padding-bottom: 0">
           <li>
             <p>
-              The game starts with 5 <strong>skill</strong> cards on each desk, 36 <strong>BONUS</strong> skill and 100 <strong>Technical Debt</strong> cards available on the board.
+              The game starts with 5 <strong>skill</strong> cards on each desk, 36 <strong>BONUS</strong> skill cards and 100 <strong>Technical Debt</strong> cards in all the game.
             </p>
           </li>
           <li>
@@ -443,6 +443,9 @@ text-align: left;">
         <span class="statement-lineno">Next <var>cardLocationsCount</var> lines:</span>
         the location name followed by 10 integers, the number of cards in this location (<var>cardLocation</var> <var>trainingCardsCount</var> <var>codingCardsCount</var> <var>dailyRoutineCardsCount</var> <var>taskPrioritizationCardsCount</var> <var>architectureStudyCardsCount</var> <var>continuousDeliveryCardsCount</var> <var>codeReviewCardsCount</var> <var>refactoringCardsCount</var> <var>bonusCardsCount</var> <var>technicalDebtCardsCount</var>).
         Location can be <const>HAND</const>, <const>DRAW</const>, <const>DISCARD</const>
+        <!-- BEGIN level2 level3 level4 -->
+         , <const>PLAYED_CARDS</const> the cards you played during this turn and that will go to your discard pile at the end of your turn
+         <!-- END -->
         <!-- BEGIN level1 level2 -->
          or <const>OPPONENT_CARDS</const> (all the opponent's cards in their hand, draw and discard)
          <!-- END -->
