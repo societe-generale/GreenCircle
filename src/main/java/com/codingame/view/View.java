@@ -351,6 +351,13 @@ public class View {
                 card.sprite.setRotation(0);
                 setToGridCenterCoordinates(card.group, playerDiscardPilesCells[playerId]);
             }
+            for (Card cardModel : player.getPlayedCards()) {
+                CardView card = cards.get(cardModel.getId());
+                card.sprite.setVisible(false);
+                card.setViewState(cardModel.getCardType(), true);
+                card.sprite.setRotation(0);
+                setToGridCenterCoordinates(card.group, playerDiscardPilesCells[playerId]);
+            }
 
             tooltipModule.setTooltipText(playerDiscardPiles[playerId].sprite, player.getDiscardPileTooltipText());
 
