@@ -55,6 +55,7 @@ public class View {
     Sprite technicalDebtBars[];
     CardView[] playerDrawPiles;
     CardView[] playerDiscardPiles;
+    Sprite applicationsTooltipBox;
 
     Group gameZone;
     Sprite background;
@@ -184,6 +185,17 @@ public class View {
                 .setZIndex(20);
         gameZone.add(playerMask);
 
+        applicationsTooltipBox = gem.createSprite()
+                .setImage("invisible.png")
+                .setAnchor(0.5)
+                .setVisible(true)
+                .setX(1118)
+                .setY(110)
+                .setScaleX(0.5)
+                .setScaleY(0.5)
+                .setZIndex(-1);
+        gameZone.add(applicationsTooltipBox);
+
         initPlayers();
         initCards();
         initHud();
@@ -295,6 +307,10 @@ public class View {
             card.sprite.setVisible(true);
             locationId++;
         }
+    }
+
+    public void refreshApplications(Game game) {
+        tooltipModule.setTooltipText(applicationsTooltipBox, game.getApplicationsTooltip());
     }
 
     public void refreshCards(Game game) {

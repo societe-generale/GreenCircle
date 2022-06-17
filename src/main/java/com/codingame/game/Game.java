@@ -101,6 +101,7 @@ public class Game {
 
         view.init();
         view.refreshCards(this);
+        view.refreshApplications(this);
         view.commitAll(0);
     }
 
@@ -239,6 +240,17 @@ public class Game {
                 break;
         }
         //TODO: remove one action?
+    }
+
+    public String getApplicationsTooltip() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("%d Applications:",
+                applications.size()));
+        for (Application app : applications) {
+            sb.append(String.format("\n%s", app.getDescription()));
+        }
+
+        return sb.toString();
     }
 
     private void train(Player player) {

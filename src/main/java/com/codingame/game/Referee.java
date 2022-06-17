@@ -104,6 +104,7 @@ public class Referee extends AbstractReferee {
             setNextPhase(player);
 
             view.refreshCards(game);
+            view.refreshApplications(game);
             view.refreshPlayersTooltips(game);
 
             if (game.isGameOver()) {

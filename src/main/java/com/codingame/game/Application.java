@@ -1,14 +1,27 @@
 package com.codingame.game;
 
 import com.codingame.game.card.Card;
+import com.codingame.game.card.CardType;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import java.awt.geom.Point2D;
 import java.util.List;
 
 public class Application {
     private int[] resourcesNeeded;
     private int id;
+    static String[] resourcesDescription = new String[Config.ZONES_COUNT];
+    static {
+        resourcesDescription[0]= "Training";
+        resourcesDescription[1]= "Coding";
+        resourcesDescription[2]= "Daily";
+        resourcesDescription[3]= "Task";
+        resourcesDescription[4]= "Archi";
+        resourcesDescription[5]= "CI";
+        resourcesDescription[6]= "Review";
+        resourcesDescription[7]= "Refactoring";
+    }
 
     public Application(int id, int[] resources) {
         this.id = id;
@@ -68,4 +81,19 @@ public class Application {
     public String toString() {
         return "APPLICATION " + id + " " + StringUtils.join(ArrayUtils.toObject(resourcesNeeded), " ");
     }
+
+    public String getDescription() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("#%d:", id));
+        for (int i=0;i<Config.ZONES_COUNT;++i) {
+            int count = resourcesNeeded[i];
+            if (count>0) {
+                sb.append(String.format(" %d %s,", count, resourcesDescription[i]));
+            }
+        }
+        sb.deleteCharAt(sb.length()-1);
+        return sb.toString();
+    }
+
+
 }

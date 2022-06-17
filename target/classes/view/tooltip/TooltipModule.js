@@ -94,7 +94,7 @@ function getMouseMoveFunc(tooltip, container, module) {
         const y = Math.floor(point.y)
         //TODO: remove it once I have set up everything
         let coordinatesTooltip = 'Coordinate (X=' + x + ', Y=' + y + ')'
-      //  tooltipBlocks.push(coordinatesTooltip)
+        tooltipBlocks.push(coordinatesTooltip)
       }
 
 
