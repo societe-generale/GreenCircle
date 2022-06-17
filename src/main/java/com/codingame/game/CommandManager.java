@@ -235,7 +235,7 @@ public class CommandManager {
             }
             CardType cardType = CardType.values()[cardTypeToThrow];
             int cardsCount = (int)player.getCardsInHand().stream().filter(c -> c.getCardType().equals(cardType)).count();
-            if (cardsCount==0 || (cardsCount==1 && cardType.equals(CardType.CONTINUOUS_INTEGRATION))) {
+            if (cardsCount==0 || (cardsCount==1 && cardType.equals(CardType.TASK_PRIORITIZATION))) {
                 throw new GameRuleException(command, String.format("you do not have a card of type %s to deprioritize", cardType));
             }
             int cardTypeToTake = Integer.parseInt(match.group("cardTypeToTake"));
