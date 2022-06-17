@@ -1,13 +1,18 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Player {
+
+class Player {
+    enum CardType {
+        TRAINING, CODING, DAILY_ROUTINE, TASK_PRIORITIZATION, ARCHITECTURE_STUDY, CONTINUOUS_INTEGRATION, CODE_REVIEW, REFACTORING, BONUS, TECHNICAL_DEBT
+    }
+
     private static int ZONES_COUNT = 8;
-    private static String MOVE_PHASE = "MOVE";
-    private static String GIVE_PHASE = "GIVE_CARD";
-    private static String THROW_PHASE = "THROW_CARD";
-    private static String PLAY_PHASE = "PLAY_CARD";
-    private static String RELEASE_PHASE = "RELEASE";
+    static final  String MOVE_PHASE = "MOVE";
+    static final String GIVE_PHASE = "GIVE_CARD";
+    static final String THROW_PHASE = "THROW_CARD";
+    static final String PLAY_PHASE = "PLAY_CARD";
+    static final String RELEASE_PHASE = "RELEASE";
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -25,9 +30,6 @@ public class Player {
             }
         }
 
-        enum CardType {
-            TRAINING, CODING, DAILY_ROUTINE, TASK_PRIORITIZATION, ARCHITECTURE_STUDY, CONTINUOUS_INTEGRATION, CODE_REVIEW, REFACTORING, BONUS, TECHNICAL_DEBT
-        }
 
         while (true) {
             //read game phase
@@ -78,7 +80,7 @@ public class Player {
                     cards = myAutomatedCards;
                 }
                 for (int j=1;j<cardsDetails.length;++j) {
-                    cards[i-1] = Integer.parseInt(cardsDetails[i]);
+                    cards[j-1] = Integer.parseInt(cardsDetails[j]);
                 }
             }
 
@@ -115,3 +117,5 @@ public class Player {
         }
     }
 }
+
+        
