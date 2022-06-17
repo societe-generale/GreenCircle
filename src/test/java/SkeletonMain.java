@@ -17,10 +17,11 @@ public class SkeletonMain {
         MultiplayerGameRunner gameRunner = new MultiplayerGameRunner();
 
         // Adds as many player as you need to test your game
-        gameRunner.addAgent(FirstMoveAgent.class, "Blue Team");
-        //gameRunner.addAgent(BuggedAgent.class, "Bug");
+        //gameRunner.addAgent(FirstMoveAgent.class, "Blue Team");
+        gameRunner.addAgent(BuggedAgent.class, "Blue Bug");
+        gameRunner.addAgent(BuggedAgent.class, "Orange Bug");
         //gameRunner.addAgent(RandomAgent.class, "Random");
-        gameRunner.addAgent(BasicVirtuousAgent.class, "Orange Team");
+        //gameRunner.addAgent(BasicVirtuousAgent.class, "Orange Team");
         //gameRunner.addAgent(BasicVirtuousAgent.class, "Virtuous 2");
 
         // Another way to add a player
@@ -29,7 +30,7 @@ public class SkeletonMain {
         //1=Wood 2
         //2=Wood 1
         //3=Bronze
-        gameRunner.setLeagueLevel(2);
+        gameRunner.setLeagueLevel(3);
         gameRunner.start(8890);
     }
 }

@@ -23,6 +23,7 @@ public class Player extends AbstractMultiplayerPlayer {
     private List<Card> automatedCards;
     private List<Card> permanentSkillCards;
     private List<Card> cardsDiscardPile;
+    private List<Card> playedCards;
     private Stack<Card> cardsDrawPile;
     private int numberOfCardsToThrow;
     private boolean mustGiveCard;
@@ -61,13 +62,22 @@ public class Player extends AbstractMultiplayerPlayer {
 
     public String getDiscardPileTooltipText() {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("Discard Pile (%d cards):",
-                cardsDiscardPile.size()));
+        sb.append(String.format("Discard Pile (%d cards):", cardsDiscardPile.size()));
         for (int i=0;i<=9;++i) {
             int finalI = i;
             int count = (int) cardsDiscardPile.stream().filter(card -> card.getCardType().ordinal() == finalI).count();
             if (count>0) {
                 sb.append(String.format("\n%d %s", count, CardType.values()[i]));
+            }
+        }
+        if (!playedCards.isEmpty()) {
+            sb.append(String.format("\n-------------\nPlayed Cards (%d cards):", playedCards.size()));
+            for (int i=0;i<=9;++i) {
+                int finalI = i;
+                int count = (int) playedCards.stream().filter(card -> card.getCardType().ordinal() == finalI).count();
+                if (count>0) {
+                    sb.append(String.format("\n%d %s", count, CardType.values()[i]));
+                }
             }
         }
 
@@ -146,6 +156,7 @@ public class Player extends AbstractMultiplayerPlayer {
         cardsDiscardPile = new ArrayList<>();
         automatedCards = new ArrayList<>();
         permanentSkillCards = new ArrayList<>();
+        playedCards = new ArrayList<>();
         cardsDrawPile = new Stack<>();
         mustGiveCard = false;
         numberOfCardsToThrow = 0;
@@ -240,6 +251,11 @@ public class Player extends AbstractMultiplayerPlayer {
             info.add("DISCARD " + getCardsCount(cardsDiscardPile));
         }
 
+        //played Cards
+        if (!playedCards.isEmpty()) {
+            info.add("PLAYED_CARDS " + getCardsCount(playedCards));
+        }
+
         //automated
         if (!automatedCards.isEmpty()) {
             info.add("AUTOMATED " + getCardsCount(automatedCards));
@@ -265,6 +281,7 @@ public class Player extends AbstractMultiplayerPlayer {
             cardsDiscardPile.add(card);
         }
         cardsInHand.clear();
+        moveAllPlayedCardsToDiscardPile();
         int moreCardsToDraw = getPermanentArchitectureStudyCardsCount();
         drawCards(Config.CARDS_TO_DRAW + moreCardsToDraw, random, view);
     }
@@ -362,6 +379,20 @@ public class Player extends AbstractMultiplayerPlayer {
         Card cardToDiscard = removeCardInHand(cardType);
         cardsDiscardPile.add(cardToDiscard);
     }
+
+    public void playCardFromHand(CardType cardType) {
+        Card cardToDiscard = removeCardInHand(cardType);
+        playedCards.add(cardToDiscard);
+    }
+
+    public void moveAllPlayedCardsToDiscardPile() {
+        for(Card card : playedCards) {
+            cardsDiscardPile.add(card);
+        }
+        playedCards.clear();
+    }
+
+    public List<Card> getPlayedCards() { return playedCards; }
 
     public void playPermanentSkillCardFromHand(CardType cardType) {
         Card permanentSkillCard = removeCardInHand(cardType);
