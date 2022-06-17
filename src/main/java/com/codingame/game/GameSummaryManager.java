@@ -493,4 +493,31 @@ public class GameSummaryManager {
         lines.add(inactivePlayer.getNicknameToken() + " is not active anymore");
         lines.add(activePlayer.getNicknameToken() + " has won the game");
     }
+
+    public void addImpossibleTraining(Player player) {
+        lines.add(
+                String.format(
+                        "%s cannot train (they have no card in draw and discard pile). They will wait instead",
+                        player.getNicknameToken()
+                )
+        );
+    }
+
+    public void addImpossibleCoding(Player player) {
+        lines.add(
+                String.format(
+                        "%s cannot code (they have no card in draw and discard pile). They will wait instead",
+                        player.getNicknameToken()
+                )
+        );
+    }
+
+    public void addForbiddenToDrawCards(Player player) {//cannot draw more than 5 times in a row to prevent infinite loops. You should play another card in between
+        lines.add(
+                String.format(
+                        "%s cannot draw cards (to prevent infinite loops, you cannot draw more than 5 times in a row. You should play another card in between). They will wait instead",
+                        player.getNicknameToken()
+                )
+        );
+    }
 }

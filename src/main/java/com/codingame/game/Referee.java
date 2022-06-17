@@ -54,7 +54,7 @@ public class Referee extends AbstractReferee {
             gameManager.setFrameDuration(500);
             gameManager.setMaxTurns(MAX_TURNS);
             gameManager.setFirstTurnMaxTime(1000);
-            gameManager.setTurnMaxTime(50);
+            gameManager.setTurnMaxTime(50); //cannot go lower than 50ms due to a limitation in Codingame's referee T_T
 
             game.init(seed);
             sendGlobalInfo();

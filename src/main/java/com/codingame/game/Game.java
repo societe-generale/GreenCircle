@@ -189,6 +189,7 @@ public class Game {
         view.setPlayerMessage(player);
         if (player.getAction().isMove()) {
             move(player, (MoveAction) player.getAction());
+            player.resetLastTurns();
         }
         else if (player.getAction().isGive()) {
             giveCard(player, (GiveAction) player.getAction());
@@ -242,26 +243,30 @@ public class Game {
     }
 
     private void train(Player player) {
-        player.discardCardFromHand(CardType.TRAINING);
         player.drawCards(2, random, view);
+        player.discardCardFromHand(CardType.TRAINING);
         player.addMorePlays(1);
+        player.spentLastTurnDrawingCards();
         gameSummaryManager.addTraining(player);
     }
 
     private void coding(Player player) {
-        player.discardCardFromHand(CardType.CODING);
         player.drawCards(1, random, view);
+        player.discardCardFromHand(CardType.CODING);
         player.addMorePlays(2);
+        player.spentLastTurnDrawingCards();
         gameSummaryManager.addCoding(player);
     }
 
     private void dailyRoutine(Player player) {
         player.playPermanentSkillCardFromHand(CardType.DAILY_ROUTINE);
+        player.resetLastTurns();
         gameSummaryManager.addDailyRoutine(player);
     }
 
     private void taskPrioritization(Player player, PlayAction action) {
         player.discardCardFromHand(CardType.TASK_PRIORITIZATION);
+        player.resetLastTurns();
         Card thrownCard = player.removeCardInHand(action.getSecondaryCardType());
         if (thrownCard == null) {
             gameSummaryManager.addUselessTaskPrioritization(player, action.getSecondaryCardType());
@@ -300,11 +305,13 @@ public class Game {
 
     private void architectureStudy(Player player) {
         player.playPermanentSkillCardFromHand(CardType.ARCHITECTURE_STUDY);
+        player.resetLastTurns();
         gameSummaryManager.addArchitectureStudy(player);
     }
 
     private void continuousIntegration(Player player, PlayAction action) {
         player.discardCardFromHand(CardType.CONTINUOUS_INTEGRATION);
+        player.resetLastTurns();
         Card cardToAutomate = player.removeCardInHand(action.getSecondaryCardType());
         if (cardToAutomate == null) {
             gameSummaryManager.addUselessContinuousIntegration(player, action.getSecondaryCardType());
@@ -320,6 +327,7 @@ public class Game {
 
     private void codeReview(Player player) {
         player.discardCardFromHand(CardType.CODE_REVIEW);
+        player.resetLastTurns();
         BonusCard card1 = getNextBonusCard();
         BonusCard card2 = getNextBonusCard();
         if (card1 == null) {
@@ -341,6 +349,7 @@ public class Game {
 
     private void refactoring(Player player) {
         player.discardCardFromHand(CardType.REFACTORING);
+        player.resetLastTurns();
         Card thrownCard = player.removeCardInHand(CardType.TECHNICAL_DEBT);
         if (thrownCard == null) {
             gameSummaryManager.addUselessRefactoring(player);

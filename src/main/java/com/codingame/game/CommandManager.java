@@ -16,6 +16,8 @@ public class CommandManager {
     @Inject private GameSummaryManager gameSummaryManager;
     @Inject private RandomActionFactory randomActionFactory;
 
+    static final int MaxTurnsDrawingCardsInARow = 5;
+
     static final Pattern PLAYER_WAIT_PATTERN = Pattern.compile(
             "^WAIT(?:\\s+(?<message>.*))?"
     );
@@ -196,7 +198,17 @@ public class CommandManager {
             if (player.getCardsInHand().stream().filter(c -> c.getCardType().equals(CardType.TRAINING)).count()==0) {
                 throw new GameRuleException(command, String.format("you do not have any %s card in hand", CardType.TRAINING));
             }
-            player.setAction(new PlayAction(CardType.TRAINING));
+            if (player.getDiscardPile().size() == 0 && player.getDrawPile().size()==0) {
+                gameSummaryManager.addImpossibleTraining(player); //nothing to draw so useless action
+                player.setAction((new WaitAction()));
+            }
+            else if (player.getLastTurnsSpendDrawingCards() >= MaxTurnsDrawingCardsInARow) {
+                gameSummaryManager.addForbiddenToDrawCards(player); //cannot draw more than 5 times in a row to prevent infinite loops. You should play another card in between
+                player.setAction((new WaitAction()));
+            }
+            else {
+                player.setAction(new PlayAction(CardType.TRAINING));
+            }
             matchMessage(player, match);
             return;
         }
@@ -206,7 +218,14 @@ public class CommandManager {
             if (player.getCardsInHand().stream().filter(c -> c.getCardType().equals(CardType.CODING)).count()==0) {
                 throw new GameRuleException(command, String.format("you do not have any %s card in hand", CardType.CODING));
             }
-            player.setAction(new PlayAction(CardType.CODING));
+            //no check on empty draw/discard since doing 2 actions can be useful
+            else if (player.getLastTurnsSpendDrawingCards() >= MaxTurnsDrawingCardsInARow) {
+                gameSummaryManager.addForbiddenToDrawCards(player); //cannot draw more than 5 times in a row to prevent infinite loops. You should play another card in between
+                player.setAction((new WaitAction()));
+            }
+            else {
+                player.setAction(new PlayAction(CardType.CODING));
+            }
             matchMessage(player, match);
             return;
         }

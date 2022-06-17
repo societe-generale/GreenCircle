@@ -28,6 +28,15 @@ public class Player extends AbstractMultiplayerPlayer {
     private boolean mustGiveCard;
     private int zoneToTakeCardId = -1;
     private String scoreDescription;
+    private int lastTurnsSpendDrawingCards = 0;
+
+    public int getLastTurnsSpendDrawingCards() { return lastTurnsSpendDrawingCards; }
+    public void resetLastTurns() {
+        lastTurnsSpendDrawingCards = 0;
+    }
+    public void spentLastTurnDrawingCards() {
+        lastTurnsSpendDrawingCards++;
+    }
 
     public String getTooltipText() {
         StringBuilder sb = new StringBuilder();
