@@ -56,6 +56,7 @@ public class View {
     CardView[] playerDrawPiles;
     CardView[] playerDiscardPiles;
     Sprite applicationsTooltipBox;
+    Sprite[] drawPileTooltipBoxes;
 
     Group gameZone;
     Sprite background;
@@ -185,6 +186,14 @@ public class View {
                 .setZIndex(20);
         gameZone.add(playerMask);
 
+        initTooltips();
+        initPlayers();
+        initCards();
+        initHud();
+        endOfTurn();
+    }
+
+    private void initTooltips() {
         applicationsTooltipBox = gem.createSprite()
                 .setImage("invisible.png")
                 .setAnchor(0.5)
@@ -195,11 +204,19 @@ public class View {
                 .setScaleY(0.5)
                 .setZIndex(-1);
         gameZone.add(applicationsTooltipBox);
-
-        initPlayers();
-        initCards();
-        initHud();
-        endOfTurn();
+        drawPileTooltipBoxes = new Sprite[Config.ZONES_COUNT+2];
+        for (int i=0;i<Config.ZONES_COUNT+2;i++) {
+            Sprite drawPileTooltip = gem.createSprite()
+                    .setImage("invisible.png")
+                    .setAnchor(0.5)
+                    .setVisible(true)
+                    .setScaleX(0.25)
+                    .setScaleY(0.25)
+                    .setZIndex(-1);
+            gameZone.add(drawPileTooltip);
+            setToGridCenterCoordinates(drawPileTooltip, drawPilesCells[i]);
+            drawPileTooltipBoxes[i] = drawPileTooltip;
+        }
     }
 
     private void initPlayers() {
@@ -356,6 +373,7 @@ public class View {
                 setToGridCenterCoordinates(card.group, drawPilesCells[zone.getId()]);
                 card.sprite.setVisible(false);
             }
+            tooltipModule.setTooltipText(drawPileTooltipBoxes[zone.getId()], String.format("%d cards left", zone.getCardsCount()));
         }
 
         //technical debt cards pool
@@ -366,6 +384,7 @@ public class View {
             setToGridCenterCoordinates(card.group, drawPilesCells[cardModel.getCardType().ordinal()]);
             card.sprite.setVisible(false);
         }
+        tooltipModule.setTooltipText(drawPileTooltipBoxes[CardType.TECHNICAL_DEBT.ordinal()], String.format("%d cards left", game.getTechnicalDebtCardsPool().size()));
 
         //bonus cards pool
         for (Card cardModel : game.getBonusCardsPool()) {
@@ -375,6 +394,7 @@ public class View {
             setToGridCenterCoordinates(card.group, drawPilesCells[cardModel.getCardType().ordinal()]);
             card.sprite.setVisible(false);
         }
+        tooltipModule.setTooltipText(drawPileTooltipBoxes[CardType.BONUS.ordinal()], String.format("%d cards left", game.getBonusCardsPool().size()));
 
         for (CardView card : cards) {
             updateTooltipText(card);

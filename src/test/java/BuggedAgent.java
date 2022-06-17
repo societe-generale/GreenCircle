@@ -99,25 +99,28 @@ public class BuggedAgent {
             }
 
             if (gamePhase.equals("MOVE")) {
-                if (myLocation==2) {
-                    System.out.println(String.format("MOVE %d %d", 1, 1 + myPermanentDailyRoutineCards));
+                if (myLocation==0) {
+                    System.out.println(String.format("MOVE 1"));
                 }
                 else {
-                    System.out.println(String.format("MOVE %d %d", 2, 2+myPermanentDailyRoutineCards));
+                    System.out.println(String.format("MOVE 0"));
                 }
             }
             else if (gamePhase.equals("GIVE_CARD")){
-                System.out.println("GIVE 9");
+                System.out.println("RANDOM");
             }
             else if (gamePhase.equals("THROW_CARD")){
                 System.out.println("RANDOM");
             }
             else if (gamePhase.equals("RELEASE")){
-                System.out.println("RELEASE " + applications[0].id);
+                System.out.println("WAIT");
             }
             else if (gamePhase.equals("PLAY_CARD")){
-                if (myCardsInHand[2]>0) {
-                    System.out.println("DAILY_ROUTINE");
+                if (myCardsInHand[0]>0) {
+                    System.out.println("TRAINING");
+                }
+                else if (myCardsInHand[1]>0) {
+                    System.out.println("CODING");
                 }
                 else {
                     System.out.println("WAIT");

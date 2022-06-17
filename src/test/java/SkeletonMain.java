@@ -17,8 +17,8 @@ public class SkeletonMain {
         MultiplayerGameRunner gameRunner = new MultiplayerGameRunner();
 
         // Adds as many player as you need to test your game
-        gameRunner.addAgent(FirstMoveAgent.class, "Blue Team");
-        //gameRunner.addAgent(BuggedAgent.class, "Bug");
+        //gameRunner.addAgent(FirstMoveAgent.class, "Blue Team");
+        gameRunner.addAgent(BuggedAgent.class, "Bug");
         //gameRunner.addAgent(RandomAgent.class, "Random");
         gameRunner.addAgent(BasicVirtuousAgent.class, "Orange Team");
         //gameRunner.addAgent(BasicVirtuousAgent.class, "Virtuous 2");
