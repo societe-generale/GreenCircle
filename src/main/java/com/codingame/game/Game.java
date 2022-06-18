@@ -520,7 +520,7 @@ public class Game {
             else if (throwableCards.stream().allMatch(card -> card.getCardType().equals(throwableCards.get(0).getCardType()))) {
                 //only one card type => automatic throw
                 for (int i=0;i<2;++i) {
-                    Card thrownCard = throwableCards.get(0);
+                    Card thrownCard = throwableCards.get(i);
                     player.removeCardInHand(thrownCard);
                     if (thrownCard.isGoodActionBonus()) {
                         bonusCardsPool.push((BonusCard) thrownCard);
