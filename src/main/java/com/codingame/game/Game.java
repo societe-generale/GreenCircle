@@ -255,16 +255,20 @@ public class Game {
 
     private void train(Player player) {
         player.playCardFromHand(CardType.TRAINING);
+        int cardsCount= player.getCardsInHand().size();
         player.drawCards(2, random, view);
+        int cardsDrawn = player.getCardsInHand().size() - cardsCount;
         player.addMorePlays(1);
-        gameSummaryManager.addTraining(player);
+        gameSummaryManager.addTraining(player, cardsDrawn);
     }
 
     private void coding(Player player) {
         player.playCardFromHand(CardType.CODING);
+        int cardsCount= player.getCardsInHand().size();
         player.drawCards(1, random, view);
+        int cardsDrawn = player.getCardsInHand().size() - cardsCount;
         player.addMorePlays(2);
-        gameSummaryManager.addCoding(player);
+        gameSummaryManager.addCoding(player, cardsDrawn);
     }
 
     private void dailyRoutine(Player player) {

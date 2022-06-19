@@ -263,8 +263,9 @@ public class GameSummaryManager {
     private void addStartPlayCardPhase(Player player) {
         lines.add(
                 String.format(
-                        "%s can play a card/perform an action",
-                        player.getNicknameToken()
+                        "%s can play %d card(s)",
+                        player.getNicknameToken(),
+                        player.getPlaysLeft()
                 )
         );
     }
@@ -363,22 +364,61 @@ public class GameSummaryManager {
         );
     }
 
-    public void addTraining(Player player) {
-        lines.add(
-                String.format(
-                        "%s trains, draws 2 cards and can play one more card",
-                        player.getNicknameToken()
-                )
-        );
+    public void addTraining(Player player, int cardsDrawn) {
+        int cardsInHand = player.getCardsInHand().size();
+        if (cardsDrawn == 2) {
+            lines.add(
+                    String.format(
+                            "%s trains, draws %s and %s and can play one more card. They can now play %d card(s)",
+                            player.getNicknameToken(),
+                            player.getCardsInHand().get(cardsInHand-2).getDescription(),
+                            player.getCardsInHand().get(cardsInHand-1).getDescription(),
+                            player.getPlaysLeft()-1
+                    )
+            );
+        }
+        else if (cardsDrawn==1) {
+            lines.add(
+                    String.format(
+                            "%s trains, draws only %s (draw pile is empty) and can play one more card. They can now play %d card(s)",
+                            player.getNicknameToken(),
+                            player.getCardsInHand().get(cardsInHand-1).getDescription(),
+                            player.getPlaysLeft()-1
+                    )
+            );
+        }
+        else { //no card drawn
+            lines.add(
+                    String.format(
+                            "%s trains, draws nothing (draw pile is empty) and can play one more card. They can now play %d card(s)",
+                            player.getNicknameToken(),
+                            player.getPlaysLeft()-1
+                    )
+            );
+        }
     }
 
-    public void addCoding(Player player) {
-        lines.add(
-                String.format(
-                        "%s codes, draws 1 card and can play two more cards",
-                        player.getNicknameToken()
-                )
-        );
+    public void addCoding(Player player, int cardsDrawn) {
+        int cardsInHand = player.getCardsInHand().size();
+        if (cardsDrawn==1) {
+            lines.add(
+                    String.format(
+                            "%s codes, draws %s and can play two more cards. They can now play %d card(s)",
+                            player.getNicknameToken(),
+                            player.getCardsInHand().get(cardsInHand-1).getDescription(),
+                            player.getPlaysLeft()-1
+                    )
+            );
+        }
+        else { //no card drawn
+            lines.add(
+                    String.format(
+                            "%s codes, draws nothing (draw pile is empty) and can play two more cards. They can now play %d card(s)",
+                            player.getNicknameToken(),
+                            player.getPlaysLeft()-1
+                    )
+            );
+        }
     }
 
     public void addUselessContinuousIntegration(Player player, CardType secondaryCardType) {
@@ -463,14 +503,20 @@ public class GameSummaryManager {
     public void addNoCardToPlay(Player player) {
         lines.add(
                 String.format(
-                        "%s does not have any card to play in their hand",
-                        player.getNicknameToken()
+                        "%s can still play %d card(s), but does not have any card to play in their hand",
+                        player.getNicknameToken(),
+                        player.getPlaysLeft()
                 )
         );
     }
 
-    public void addPlayerInput(String line) {
-        lines.add(line);
+    public void addNoMorePlayingCardAllowed(Player player) {
+        lines.add(
+                String.format(
+                        "%s cannot play more cards.",
+                        player.getNicknameToken()
+                )
+        );
     }
 
     public void addTieBreakEndOfGame(Player winner, Player a, Player b) {

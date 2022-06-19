@@ -116,13 +116,13 @@ public class BuggedAgent {
                 System.out.println("WAIT");
             }
             else if (gamePhase.equals("PLAY_CARD")){
-                if (myCardsInHand[0]>0) {
-                    System.out.println("TRAINING");
-                }
-                else if (myCardsInHand[1]>0) {
+                if (myCardsInHand[1]>0) {
                     System.out.println("CODING");
                 }
-                else {
+                else if (myCardsInHand[0]>0) {
+                    System.out.println("TRAINING");
+                }
+                else  {
                     System.out.println("WAIT");
                 }
             }

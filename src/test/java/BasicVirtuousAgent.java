@@ -131,7 +131,15 @@ public class BasicVirtuousAgent {
                     break;
                 case "PLAY_CARD":
                     //if can release an application, do nothing (to keep the cards)
-                    if (myCardsInHand[REFACTORING_CARD]>0 && myCardsInHand[TECHNICAL_DEBT_CARD]>0) {
+                    if (myCardsInHand[CODING_CARD]>0) {
+                        //Coding to draw more cards and get more actions
+                        System.out.println("CODING");
+                    }
+                    else if (myCardsInHand[TRAINING_CARD]>0) {
+                        //Training to draw more cards (only if good cards to draw > technical debt cards to draw
+                        System.out.println("TRAINING");
+                    }
+                    else if (myCardsInHand[REFACTORING_CARD]>0 && myCardsInHand[TECHNICAL_DEBT_CARD]>0) {
                         //refactoring to remove a technical debt
                         System.out.println("REFACTORING");
                     }
@@ -157,10 +165,6 @@ public class BasicVirtuousAgent {
                             }
                         }
                         System.out.println(String.format("CONTINUOUS_INTEGRATION %d",cardType));
-                    }
-                    else if (myCardsInHand[TRAINING_CARD]>0) {
-                    //Training to draw more cards (only if good cards to draw > technical debt cards to draw
-                    System.out.println("TRAINING");
                     }
                     else {
                         //do nothing
