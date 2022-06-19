@@ -443,8 +443,9 @@ public class Game {
         gameSummaryManager.addRelease(player, application);
         gameManager.addTooltip(
                 player, String.format(
-                        "%s released an objective",
-                        player.getNicknameToken()
+                        "%s released application %s",
+                        player.getNicknameToken(),
+                        application.getDescription()
                 )
         );
         player.setScore(player.getScore()+1);
