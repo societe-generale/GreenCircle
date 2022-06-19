@@ -144,6 +144,7 @@ public class Referee extends AbstractReferee {
             activePlayer.removeOnePlay();
             if (activePlayer.getPlaysLeft() <= 0) {
                 gameSummaryManager.addNoMorePlayingCardAllowed(activePlayer);
+                activePlayer.setPlaysLeft(0);
                 if (game.canReleaseApplication(activePlayer)) {
                     gamePhase = GamePhase.RELEASE;
                 }
@@ -169,7 +170,7 @@ public class Referee extends AbstractReferee {
 
     private void startPlayCardPhase(Player player) {
         gamePhase = GamePhase.PLAY_CARD;
-        player.addMorePlays(1);
+        player.setPlaysLeft(1);
     }
 
     private void switchToNextPlayer(Player player) {
