@@ -129,7 +129,16 @@ public class CommandManager {
         int dailyRoutinesCount = player.getPermanentDailyRoutineCardsCount();
         if (match.matches() && gamePhase == GamePhase.MOVE && dailyRoutinesCount>0) {
             int zoneToMoveId = Integer.parseInt(match.group("zoneToMoveId"));
+            if (zoneToMoveId < 0 || zoneToMoveId>=Config.ZONES_COUNT) {
+                throw new GameRuleException(command, "you can only move to a zone between 0 and 7");
+            }
+            if (zoneToMoveId == player.getZoneId()) {
+                throw new GameRuleException(command, String.format("you must move to another desk (you are already in desk %d", zoneToMoveId));
+            }
             int zoneToTakeCardId = Integer.parseInt(match.group("zoneToTakeCardId"));
+            if (zoneToTakeCardId < 0 || zoneToTakeCardId>=Config.ZONES_COUNT) {
+                throw new GameRuleException(command, "you can only take a card from a zone between 0 and 7");
+            }
             int distance = abs(zoneToMoveId - zoneToTakeCardId);
             if (distance > dailyRoutinesCount) {
                 distance = abs(Config.ZONES_COUNT - distance);
@@ -144,7 +153,7 @@ public class CommandManager {
         match = PLAYER_MOVE_PATTERN.matcher(command);
         if (match.matches() && gamePhase == GamePhase.MOVE) {
             int zoneId = Integer.parseInt(match.group("zoneId"));
-            if (zoneId < 0 ||zoneId>=Config.ZONES_COUNT) {
+            if (zoneId < 0 || zoneId>=Config.ZONES_COUNT) {
                 throw new GameRuleException(command, "you can only move to a zone between 0 and 7");
             }
             if (zoneId == player.getZoneId()) {
