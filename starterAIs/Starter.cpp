@@ -132,6 +132,9 @@ public:
         Location = location;
         Score = score;
         UsefulCardsNotInHand = 0;
+        
+        for (int i=0; i<10; ++i)
+            AvailableCards[i] = CardsInDrawPile[i] = CardsInDiscardPile[i] = AutomatedCards[i] = 0;
     }
 
     void SetCardsInHand(int trainingCardsCount, int codingCardsCount, int dailyRoutineCardsCount, int taskPrioritizationCardsCount, int architectureStudyCardsCount,
