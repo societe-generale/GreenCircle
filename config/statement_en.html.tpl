@@ -399,13 +399,13 @@ text-align: left;">
       <div class="title">Input for One Game Turn</div>
       <div class="text">
         <span class="statement-lineno">Line 1:</span> <var>gamePhase</var> the name of the current game phase. It can be <const>MOVE</const>,
-        <!-- BEGIN level2 level3 -->
+        <!-- BEGIN level2 level3 level4 -->
         <const>GIVE_CARD</const>,
         <!-- END -->
-        <!-- BEGIN level3 -->
+        <!-- BEGIN level3 level4 -->
         <const>THROW_CARD</const>,
         <!-- END -->
-        <!-- BEGIN level2 level3 -->
+        <!-- BEGIN level2 level3 level4 -->
         <const>PLAY_CARD</const>,
         <!-- END -->
         <const>RELEASE</const>

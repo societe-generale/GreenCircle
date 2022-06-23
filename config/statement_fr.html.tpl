@@ -397,13 +397,13 @@ text-align: left;">
       <div class="title">Entrées pour un Tour de Jeu</div>
       <div class="text">
         <span class="statement-lineno">Ligne 1&nbsp;:</span> le nom <var>gamePhase</var> de la phase actuelle avec l’action attendue. Peut être <const>MOVE</const>,
-        <!-- BEGIN level2 level3 -->
+        <!-- BEGIN level2 level3 level4 -->
         <const>GIVE_CARD</const>,
         <!-- END -->
-        <!-- BEGIN level3 -->
+        <!-- BEGIN level3 level4 -->
         <const>THROW_CARD</const>,
         <!-- END -->
-        <!-- BEGIN level2 level3 -->
+        <!-- BEGIN level2 level3 level4 -->
         <const>PLAY_CARD</const>,
         <!-- END -->
         <const>RELEASE</const>
