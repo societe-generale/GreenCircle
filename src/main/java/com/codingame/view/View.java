@@ -503,12 +503,7 @@ public class View {
         });
         return wrapper;
     }
-/*
-    private void setToAbsoluteCenterWithOffset(Entity<?> entity, Cell coord, double offsetX, double offsetY) {
-        entity.setX((int) ((coord.getX() + offsetX + 0.5) * (gameZone.getScaleX() * cellSize) + gameZone.getX()));
-        entity.setY((int) ((coord.getY() + offsetY + 0.5) * (gameZone.getScaleY() * cellSize) + gameZone.getY()));
-    }
-*/
+
     private void setToAbsoluteCenterWithOffset(Entity<?> entity, Point2D.Double position, double offsetX, double offsetY) {
         entity.setX((int) ((position.x + offsetX + 0.5) * (gameZone.getScaleX() * cellSize) + gameZone.getX()));
         entity.setY((int) ((position.y + offsetY + 0.5) * (gameZone.getScaleY() * cellSize) + gameZone.getY()));
@@ -519,26 +514,6 @@ public class View {
                 .setX((int) (position.getX() * cellSize + cellSize / 2))
                 .setY((int) (position.getY() * cellSize + cellSize / 2));
     }
-
-  /*  private void setToGridCenterCoordinates(Entity<?> entity, Cell position) {
-        entity
-                .setX(position.getX() * cellSize + cellSize / 2)
-                .setY(position.getY() * cellSize + cellSize / 2);
-    }
-
-
-    void setToGridCoordinates(Entity<?> entity, Cell position) {
-        entity
-                .setX(position.getX() * cellSize)
-                .setY(position.getY() * cellSize);
-    }
-
-    void setToGridCoordinates(Entity<?> entity, Cell position, int offset) {
-        entity
-                .setX(position.getX() * cellSize + offset)
-                .setY(position.getY() * cellSize + offset);
-    }
-*/
 
     //header: player (name + avatar) & score
     private void initHud() {
@@ -855,6 +830,29 @@ public class View {
         int zoneId = cardThrown.getCardType().ordinal();
         setToGridCenterCoordinates(card.group, drawPilesCells[zoneId]);
         card.sprite.setRotation(drawPilesOrientations[zoneId]);
+        gem.commitEntityState(0.95, card.group);
+        card.sprite.setVisible(false);
+    }
+
+    public void playerPlaysCard(Card playedCard) {
+        CardView card = cards.get(playedCard.getId());
+        gem.commitEntityState(0.1, card.group);
+        card.group.setY(card.group.getY() - 50);
+        gem.commitEntityState(0.3, card.group);
+    }
+
+    public void playerDiscardsCardAtEndOfTurn(Card playedCard, Player player) {
+        CardView card = cards.get(playedCard.getId());
+        setToGridCenterCoordinates(card.group, playerDiscardPilesCells[player.getIndex()]);
+        card.sprite.setRotation(0);
+        gem.commitEntityState(0.95, card.group);
+        card.sprite.setVisible(false);
+    }
+
+    //used for CONTINUOUS_INTEGRATION or for permanent skills
+    public void moveCardToPlayer(Card playedCard, Player player) {
+        CardView card = cards.get(playedCard.getId());
+        setToGridCenterCoordinates(card.group, getCoordinates(player.getIndex(),player.getZoneId()));
         gem.commitEntityState(0.95, card.group);
         card.sprite.setVisible(false);
     }

@@ -380,9 +380,11 @@ public class Player extends AbstractMultiplayerPlayer {
         cardsDiscardPile.add(cardToDiscard);
     }
 
-    public void playCardFromHand(CardType cardType) {
+    public void playCardFromHand(CardType cardType, View view) {
         Card cardToDiscard = removeCardInHand(cardType);
         playedCards.add(cardToDiscard);
+        view.playerPlaysCard(cardToDiscard);
+        view.playerDiscardsCardAtEndOfTurn(cardToDiscard, this);
     }
 
     public void moveAllPlayedCardsToDiscardPile() {
@@ -394,9 +396,11 @@ public class Player extends AbstractMultiplayerPlayer {
 
     public List<Card> getPlayedCards() { return playedCards; }
 
-    public void playPermanentSkillCardFromHand(CardType cardType) {
+    public void playPermanentSkillCardFromHand(CardType cardType, View view) {
         Card permanentSkillCard = removeCardInHand(cardType);
         addPermanentSkillCard(permanentSkillCard);
+        view.playerPlaysCard(permanentSkillCard);
+        view.moveCardToPlayer(permanentSkillCard, this);
     }
 
     public void discardPermanentSkills() {

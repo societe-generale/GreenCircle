@@ -255,7 +255,7 @@ public class Game {
     }
 
     private void train(Player player) {
-        player.playCardFromHand(CardType.TRAINING);
+        player.playCardFromHand(CardType.TRAINING, view);
         int cardsCount= player.getCardsInHand().size();
         player.drawCards(2, random, view);
         int cardsDrawn = player.getCardsInHand().size() - cardsCount;
@@ -264,7 +264,7 @@ public class Game {
     }
 
     private void coding(Player player) {
-        player.playCardFromHand(CardType.CODING);
+        player.playCardFromHand(CardType.CODING, view);
         int cardsCount= player.getCardsInHand().size();
         player.drawCards(1, random, view);
         int cardsDrawn = player.getCardsInHand().size() - cardsCount;
@@ -273,12 +273,12 @@ public class Game {
     }
 
     private void dailyRoutine(Player player) {
-        player.playPermanentSkillCardFromHand(CardType.DAILY_ROUTINE);
+        player.playPermanentSkillCardFromHand(CardType.DAILY_ROUTINE, view);
         gameSummaryManager.addDailyRoutine(player);
     }
 
     private void taskPrioritization(Player player, PlayAction action) {
-        player.playCardFromHand(CardType.TASK_PRIORITIZATION);
+        player.playCardFromHand(CardType.TASK_PRIORITIZATION, view);
         Card thrownCard = player.removeCardInHand(action.getSecondaryCardType());
         if (thrownCard == null) {
             gameSummaryManager.addUselessTaskPrioritization(player, action.getSecondaryCardType());
@@ -316,12 +316,12 @@ public class Game {
     }
 
     private void architectureStudy(Player player) {
-        player.playPermanentSkillCardFromHand(CardType.ARCHITECTURE_STUDY);
+        player.playPermanentSkillCardFromHand(CardType.ARCHITECTURE_STUDY, view);
         gameSummaryManager.addArchitectureStudy(player);
     }
 
     private void continuousIntegration(Player player, PlayAction action) {
-        player.playCardFromHand(CardType.CONTINUOUS_INTEGRATION);
+        player.playCardFromHand(CardType.CONTINUOUS_INTEGRATION, view);
         Card cardToAutomate = player.removeCardInHand(action.getSecondaryCardType());
         if (cardToAutomate == null) {
             gameSummaryManager.addUselessContinuousIntegration(player, action.getSecondaryCardType());
@@ -332,11 +332,12 @@ public class Game {
         } else {
             gameSummaryManager.addUsefulContinuousIntegration(player, action.getSecondaryCardType());
             player.addAutomatedCard(cardToAutomate);
+            view.moveCardToPlayer(cardToAutomate, player);
         }
     }
 
     private void codeReview(Player player) {
-        player.playCardFromHand(CardType.CODE_REVIEW);
+        player.playCardFromHand(CardType.CODE_REVIEW, view);
         BonusCard card1 = getNextBonusCard();
         BonusCard card2 = getNextBonusCard();
         if (card1 == null) {
@@ -357,7 +358,7 @@ public class Game {
     }
 
     private void refactoring(Player player) {
-        player.playCardFromHand(CardType.REFACTORING);
+        player.playCardFromHand(CardType.REFACTORING, view);
         Card thrownCard = player.removeCardInHand(CardType.TECHNICAL_DEBT);
         if (thrownCard == null) {
             gameSummaryManager.addUselessRefactoring(player);
@@ -779,10 +780,6 @@ public class Game {
         releases.add("RANDOM");
         releases.add("WAIT");
         return releases;
-    }
-
-    private String getZonesInfo() {
-        return String.join(" ", Arrays.stream(zones).map(zone -> String.valueOf(zone.getCardsCount())).collect(Collectors.toList()));
     }
 
     public boolean canReleaseApplication(Player player) {
