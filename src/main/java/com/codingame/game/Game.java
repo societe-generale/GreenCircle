@@ -59,14 +59,14 @@ public class Game {
         return zones;
     }
 
-    public void init(long seed) {
+    public void init(Random secureRandom) {
         String state = gameManager.getGameParameters().getProperty("state");
         if (state != null && System.getProperty("allow.config.override") != null) {
             initGameFromState(state);
         }
 
         lastTurn = false;
-        random = new Random(seed);
+        random = secureRandom;
         //create board & the action cards
         zones = new Zone[Config.ZONES_COUNT];
         for (int zoneId=0;zoneId<zones.length;++zoneId) {

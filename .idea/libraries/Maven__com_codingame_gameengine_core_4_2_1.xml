@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.codingame.gameengine:core:4.2.1">
+    <CLASSES>
+      <root url="jar://C:/HOMEWARE/ITEC-Toolbox/.m2/repository/com/codingame/gameengine/core/4.2.1/core-4.2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://C:/HOMEWARE/ITEC-Toolbox/.m2/repository/com/codingame/gameengine/core/4.2.1/core-4.2.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://C:/HOMEWARE/ITEC-Toolbox/.m2/repository/com/codingame/gameengine/core/4.2.1/core-4.2.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

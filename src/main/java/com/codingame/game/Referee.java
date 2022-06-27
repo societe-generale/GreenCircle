@@ -22,22 +22,17 @@ public class Referee extends AbstractReferee {
     @Inject private View view;
     @Inject private EndScreenModule endScreenModule;
     private static final int MAX_TURNS = 200;
-    private int turnId=0;
     private int activePlayerId;
     private GamePhase gamePhase;
-    long seed;
     int maxFrames;
     boolean gameOverFrame;
 
     @Override
     public void init() {
         // Initialize your game here.
-        turnId=0;
         activePlayerId = 0;
         gamePhase = GamePhase.MOVE;
         gameOverFrame = false;
-        //viewModule.setReferee(this);
-        this.seed = gameManager.getSeed();
 
         // Set configuration depending on game rules:
         Config.setDefaultValueByLevel(LeagueRules.fromIndex(gameManager.getLeagueLevel()));
@@ -56,7 +51,7 @@ public class Referee extends AbstractReferee {
             gameManager.setFirstTurnMaxTime(1000);
             gameManager.setTurnMaxTime(50);
 
-            game.init(seed);
+            game.init(gameManager.getRandom());
             sendGlobalInfo();
 
         } catch (Exception e) {
@@ -72,7 +67,6 @@ public class Referee extends AbstractReferee {
 
     @Override
     public void gameTurn(int turn) {
-        turnId++;
         if (!gameOverFrame) {
             game.resetGameTurnData();
 
