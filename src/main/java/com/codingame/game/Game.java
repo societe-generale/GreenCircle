@@ -737,10 +737,12 @@ public class Game {
                 if (card.getCardType() == CardType.TASK_PRIORITIZATION) {
                     for (Card cardToReplace : player.getNonTechnicalDebtCardsInHand()) {
                         if (cardToReplace.getId() != card.getId()) {
-                            for (int zoneId = 0; zoneId < Config.ZONES_COUNT; ++zoneId) {
-                                String cardPlay = String.format("%s %d %d", card.getCardType().toString(), cardToReplace.getCardType().ordinal(), zoneId);
-                                if (!cardPlays.contains(cardPlay)) {
-                                    cardPlays.add(cardPlay);
+                            for (int zoneId = 0; zoneId <= Config.ZONES_COUNT; ++zoneId) {
+                                if (cardToReplace.getCardType().ordinal() != zoneId) {
+                                    String cardPlay = String.format("%s %d %d", card.getCardType().toString(), cardToReplace.getCardType().ordinal(), zoneId);
+                                    if (!cardPlays.contains(cardPlay)) {
+                                        cardPlays.add(cardPlay);
+                                    }
                                 }
                             }
                         }
