@@ -84,6 +84,7 @@ public class Game {
         for (int i=0;i<Config.BIG_APPLICATIONS_COUNT;++i) {
             applications.add(applicationFactory.createBigApplication(random));
         }
+        Collections.sort(applications, Comparator.comparing(Application::getId));
 
         bonusCardsPool = new Stack<>();
         technicalDebtCardsPool = new Stack<>();
