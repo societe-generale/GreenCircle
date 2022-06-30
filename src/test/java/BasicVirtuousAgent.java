@@ -155,6 +155,10 @@ public class BasicVirtuousAgent {
                         //Code Review to get 2 bonus cards in discard pile
                         System.out.println("CODE_REVIEW");
                     }
+                    else if (myCardsInHand[TASK_PRIORITIZATION_CARD]>0) {
+                        //too lazy to calculate it
+                        System.out.println("TASK_PRIORITIZATION 8 5");
+                    }
                     else if (myCardsInHand[CONTINUOUS_INTEGRATION_CARD]>0 && isThereAnotherCardToAutomate(myCardsInHand)) {
                         //Continuous Integration to automate one card
                         int cardType=0;

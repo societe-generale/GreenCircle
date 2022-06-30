@@ -3,7 +3,6 @@ package com.codingame.game;
 import com.codingame.game.action.*;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 import com.codingame.game.card.*;
 import com.codingame.gameengine.core.MultiplayerGameManager;
@@ -307,7 +306,7 @@ public class Game {
             bonusCardsPool.push((BonusCard) thrownCard);
         }
         player.addNewCardInHand(cardTaken);
-        view.playerTakesCardInHand(cardTaken);
+        view.playerTakesCardInHand(cardTaken, true);
         if (cardTaken.isGoodActionBonus() && action.getThirdCardType() != CardType.BONUS) {
             gameSummaryManager.addSemiUselessTaskPrioritization(player, action.getThirdCardType());
         } else {
@@ -427,7 +426,7 @@ public class Game {
                 }
             }
 
-            takeCard(player);
+            takeCardAfterMove(player);
         }
     }
 
@@ -438,7 +437,7 @@ public class Game {
         player.hasGivenCard();
         gameSummaryManager.addGiveCard(player, givenCard);
         if (player.getNumberOfCardsToThrow()==0) {
-            takeCard(player);
+            takeCardAfterMove(player);
         }
     }
 
@@ -594,11 +593,11 @@ public class Game {
 
         player.setMustTakeCard(action.getZoneToTakeCardId());
         if (!player.mustGiveCard()) {
-            takeCard(player);
+            takeCardAfterMove(player);
         }
     }
 
-    public void takeCard(Player player) {
+    public void takeCardAfterMove(Player player) {
         Card cardTaken = zones[player.getZoneToTakeCardId()].getNextCard();
         if (cardTaken==null) {
             gameSummaryManager.addUselessTakeCard(player, player.getZoneToTakeCardId());
@@ -610,7 +609,7 @@ public class Game {
         } else {
             gameSummaryManager.addTakeCard(player, cardTaken);
         }
-        view.playerTakesCardInHand(cardTaken);
+        view.playerTakesCardInHand(cardTaken, true);
         player.setMustTakeCard(-1);
     }
 

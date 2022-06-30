@@ -314,7 +314,7 @@ public class Player extends AbstractMultiplayerPlayer {
             Card cardTaken = cardsDrawPile.pop();
             cardsInHand.add(cardTaken);
             if (view!=null) {
-                view.playerTakesCardInHand(cardTaken);
+                view.playerTakesCardInHand(cardTaken, false);
             }
         }
     }

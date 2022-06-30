@@ -815,11 +815,15 @@ public class View {
         gem.commitEntityState(0, player.message);
     }
 
-    public void playerTakesCardInHand(Card cardTaken) {
+    public void playerTakesCardInHand(Card cardTaken, boolean fromBoard) {
         CardView card = cards.get(cardTaken.getId());
         int zoneId = cardTaken.getCardType().ordinal();
         setToGridCenterCoordinates(card.group, drawPilesCells[zoneId]);
-        card.sprite.setRotation(drawPilesOrientations[zoneId]);
+        if (fromBoard) {
+            card.sprite.setRotation(drawPilesOrientations[zoneId]);
+        } else {
+            card.sprite.setRotation(0); //taken from draw pile
+        }
         card.sprite.setVisible(true);
         gem.commitEntityState(0.1, card.sprite);
     }
